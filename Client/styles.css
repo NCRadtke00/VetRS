@@ -8,11 +8,16 @@
     text-align: center;
     font-size: large;
 }
-
 .mainContent {
     margin-bottom: 10px;
     min-height: 310px;
     background-color: silver;
     text-align: center;
     font-size: large;
+}
+.header {
+    min-height: 150px;
+    background-color: silver;
+    text-align: center;
+    font-size: 2em;
 }
