@@ -2,14 +2,14 @@
     color: gold;
 }
 .sidebarContent {
-    margin-bottom: 10px;
+    margin-bottom: 9px;
     min-height: 300px;
     background-color: silver;
     text-align: center;
     font-size: 2em;
 }
 .mainContent {
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     min-height: 610px;
     background-color: silver;
     text-align: center;
@@ -20,4 +20,14 @@
     background-color: silver;
     text-align: center;
     font-size: 2em;
+}
+.footer {
+    min-height: 100px;
+    background-color: silver;
+    text-align: center;
+    font-size: 2em;
+    border: slategray;
+    }
+.footerRow {
+    margin: 0px;
 }
