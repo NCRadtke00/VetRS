@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VetRS.Data;
 
 namespace VetRS.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201005165040_RoleUpdate")]
+    partial class RoleUpdate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,8 +50,8 @@ namespace VetRS.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "30087c49-e717-4235-a8a1-439988c5872c",
-                            ConcurrencyStamp = "89054819-bdc3-47d3-ae1a-56ae295050a1",
+                            Id = "197c0cc1-6541-4bcc-ac9c-93f5f8abb7db",
+                            ConcurrencyStamp = "0b9e23d4-84d2-42ed-abb2-6875e9ea96ac",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
