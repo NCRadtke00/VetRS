@@ -44,7 +44,6 @@ namespace VetRS.Data
                         VSOCity = "Milwaukee",
                         VSOState = "WI",
                         VSOZipCode = 53022
-
                     },
                     new VSO
                     {
@@ -99,9 +98,6 @@ namespace VetRS.Data
                         VSOZipCode = 53022
                     }
                  );
-
-
-
             }
             {
                 builder.Entity<Veteran>().HasData(
@@ -171,9 +167,94 @@ namespace VetRS.Data
                         VeteranZipCode = 53022
                     }
                     );
+            }
+            {
+                builder.Entity<Education>().HasData(
+                    new Education
+                    {
+                        Id = 1,
+                        FirstName = "Bobby",
+                        LastName = "Knight",
+                        PhoneNumber = "2228389992",
+                        Email = "BigGuy@comcast.net",
+                        ImageLocation = "",
+                        ProgramName = "University of Wisconsin",
+                        ProgramImageLocation = "",
+                        ProgramBio = "Wisconsin's Premier Educational State Institution",
+                        EducationStreet = "Surly",
+                        EducationCity = "Milwaukee",
+                        EducationState = "Wisconsin",
+                        EducationZipCode = 53022,
+                    },
+                    new Education
+                    {
+                        Id = 2,
+                        FirstName = "Mitch",
+                        LastName = "Holcomb",
+                        PhoneNumber = "9392244234",
+                        Email = "RuReady@comcast.net",
+                        ImageLocation = "",
+                        ProgramName = "Milwaukee Area Technical College",
+                        ProgramImageLocation = "",
+                        ProgramBio = "Education that transforms lives, industry, and community.",
+                        EducationStreet = "700 W. State Street",
+                        EducationCity = "Milwaukee",
+                        EducationState = "Wisconsin",
+                        EducationZipCode = 53232,
+                    },
+                    new Education
+                    {
+                        Id = 3,
+                        FirstName = "Sheila",
+                        LastName = "Williams",
+                        PhoneNumber = "8003478822",
+                        Email = "ShellieN19@gmail.com",
+                        ImageLocation = "",
+                        ProgramName = "Cardinal Stritch University",
+                        ProgramImageLocation = "",
+                        ProgramBio = "Stritch's story is integrated with more than 38,000 of our alumni who are positively impacting the communities in which they live, work, serve, and lead.",
+                        EducationStreet = "6801 N. Yates Road",
+                        EducationCity = "Milwaukee",
+                        EducationState = "Wisconsin",
+                        EducationZipCode = 53217,
+                    },
+                    new Education
+                    {
+                        Id = 4,
+                        FirstName = "Wendy",
+                        LastName = "Knight",
+                        PhoneNumber = "4145330639",
+                        Email = "Wendydev13@comcast.net",
+                        ImageLocation = "",
+                        ProgramName = "devCodeCamp",
+                        ProgramImageLocation = "",
+                        ProgramBio = "devCodeCamp has been awarded 'Best Coding Bootcamp' by Course Report each year 2016-2020",
+                        EducationStreet = "313 N Plankington Ave Suite 209",
+                        EducationCity = "Milwaukee",
+                        EducationState = "Wisconsin",
+                        EducationZipCode = 53303,
+                    },
+                    new Education
+                    {
+                        Id = 5,
+                        FirstName = "James",
+                        LastName = "Schmidt",
+                        PhoneNumber = "4142296627",
+                        Email = "vets@uwm.edu",
+                        ImageLocation = "",
+                        ProgramName = "University of Wisconsin - Milwaukee",
+                        ProgramImageLocation = "",
+                        ProgramBio = "Wisconsin's Premier Educational State Institution",
+                        EducationStreet = "Mellencamp Hall, Room 168A, P.O. Box 469",
+                        EducationCity = "Milwaukee",
+                        EducationState = "Wisconsin",
+                        EducationZipCode = 53201 - 0469,
+                    }
+                    );
 
             }
 
         }
+
     }
 }

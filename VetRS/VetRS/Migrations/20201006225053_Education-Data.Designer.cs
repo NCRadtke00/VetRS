@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VetRS.Data;
 
 namespace VetRS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201006225053_Education-Data")]
+    partial class EducationData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,13 +50,8 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-<<<<<<< HEAD
                             Id = "7f35ea31-cfc1-474e-9346-efed6a2ce70f",
                             ConcurrencyStamp = "23993739-4b76-4c87-8d76-8fb90cc9078f",
-=======
-                            Id = "66f9178a-3e8d-4b01-8b62-abb101386ed2",
-                            ConcurrencyStamp = "4591d093-fca3-4b34-9527-eea626306d7f",
->>>>>>> 810a0ce378b180012f4bb2b1782f3fdc7b6b39cb
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
