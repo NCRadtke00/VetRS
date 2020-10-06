@@ -48,8 +48,8 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "afc24f31-08fb-46bc-aa13-9ac3f8bc39df",
-                            ConcurrencyStamp = "818a2639-3e18-41e3-bd8e-5e7045337107",
+                            Id = "be80f185-eae4-4bae-a02c-88ef7b6f459a",
+                            ConcurrencyStamp = "9e3b5583-3ecb-48d0-bd88-f38a45f014f6",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -328,18 +328,6 @@ namespace VetRS.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("EducationCity")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EducationState")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("EducationStreet")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("EducationZipCode")
-                        .HasColumnType("int");
-
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
 
@@ -357,6 +345,18 @@ namespace VetRS.Migrations
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VeteranCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VeteranState")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VeteranStreet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("VeteranZipCode")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

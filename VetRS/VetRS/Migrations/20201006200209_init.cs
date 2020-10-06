@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace VetRS.Migrations
 {
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -194,10 +194,10 @@ namespace VetRS.Migrations
                     PhoneNumber = table.Column<string>(nullable: true),
                     Email = table.Column<string>(nullable: true),
                     ImageLocation = table.Column<string>(nullable: true),
-                    EducationStreet = table.Column<string>(nullable: true),
-                    EducationCity = table.Column<string>(nullable: true),
-                    EducationState = table.Column<string>(nullable: true),
-                    EducationZipCode = table.Column<int>(nullable: false),
+                    VeteranStreet = table.Column<string>(nullable: true),
+                    VeteranCity = table.Column<string>(nullable: true),
+                    VeteranState = table.Column<string>(nullable: true),
+                    VeteranZipCode = table.Column<int>(nullable: false),
                     IdentityUserId = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
@@ -242,7 +242,7 @@ namespace VetRS.Migrations
             migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "afc24f31-08fb-46bc-aa13-9ac3f8bc39df", "818a2639-3e18-41e3-bd8e-5e7045337107", "Admin", "ADMIN" });
+                values: new object[] { "be80f185-eae4-4bae-a02c-88ef7b6f459a", "9e3b5583-3ecb-48d0-bd88-f38a45f014f6", "Admin", "ADMIN" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
