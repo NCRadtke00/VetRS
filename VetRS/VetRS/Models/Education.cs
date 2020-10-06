@@ -16,7 +16,10 @@ namespace VetRS.Models
         public string LastName { get; set; }
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
-        public string ImageLocation { get; set; }
+        public string ImageLocation { get; set; } 
+        public string ProgramName { get; set; }
+        public string ProgramImageLocation { get; set; }
+        public string ProgramBio { get; set; }
         public string EducationStreet { get; set; }
         public string EducationCity { get; set; }
         public string EducationState { get; set; }
