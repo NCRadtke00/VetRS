@@ -29,6 +29,7 @@ namespace VetRS.Data
                 NormalizedName = "ADMIN"
             }
             );
+
             {
                 builder.Entity<VSO>().HasData(
                     new VSO
