@@ -17,12 +17,10 @@ namespace VetRS.Models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string ImageLocation { get; set; }
-        [ForeignKey("DOB")]
-        public int DOBId { get; set; }
-        public DOB DOB { get; set; }
-        [ForeignKey("Address")]
-        public int AddressId { get; set; }
-        public Address Address { get; set; }
+        public string EducationStreet { get; set; }
+        public string EducationCity { get; set; }
+        public string EducationState { get; set; }
+        public int EducationZipCode { get; set; }
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
         public IdentityUser IdentityUser { get; set; }
