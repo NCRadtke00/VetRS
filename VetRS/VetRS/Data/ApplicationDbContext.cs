@@ -250,6 +250,7 @@ namespace VetRS.Data
                         EducationZipCode = 53201 - 0469,
                     }
                     );
+
             }
 
         }

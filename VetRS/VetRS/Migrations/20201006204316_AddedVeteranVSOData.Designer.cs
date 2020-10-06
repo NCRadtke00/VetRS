@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VetRS.Data;
 
 namespace VetRS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201006204316_AddedVeteranVSOData")]
+    partial class AddedVeteranVSOData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -48,13 +50,8 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-<<<<<<< HEAD
-                            Id = "7f35ea31-cfc1-474e-9346-efed6a2ce70f",
-                            ConcurrencyStamp = "23993739-4b76-4c87-8d76-8fb90cc9078f",
-=======
                             Id = "66f9178a-3e8d-4b01-8b62-abb101386ed2",
                             ConcurrencyStamp = "4591d093-fca3-4b34-9527-eea626306d7f",
->>>>>>> 810a0ce378b180012f4bb2b1782f3fdc7b6b39cb
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -280,88 +277,6 @@ namespace VetRS.Migrations
                     b.HasIndex("IdentityUserId");
 
                     b.ToTable("Education");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            EducationCity = "Milwaukee",
-                            EducationState = "Wisconsin",
-                            EducationStreet = "Surly",
-                            EducationZipCode = 53022,
-                            Email = "BigGuy@comcast.net",
-                            FirstName = "Bobby",
-                            ImageLocation = "",
-                            LastName = "Knight",
-                            PhoneNumber = "2228389992",
-                            ProgramBio = "Wisconsin's Premier Educational State Institution",
-                            ProgramImageLocation = "",
-                            ProgramName = "University of Wisconsin"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            EducationCity = "Milwaukee",
-                            EducationState = "Wisconsin",
-                            EducationStreet = "700 W. State Street",
-                            EducationZipCode = 53232,
-                            Email = "RuReady@comcast.net",
-                            FirstName = "Mitch",
-                            ImageLocation = "",
-                            LastName = "Holcomb",
-                            PhoneNumber = "9392244234",
-                            ProgramBio = "Education that transforms lives, industry, and community.",
-                            ProgramImageLocation = "",
-                            ProgramName = "Milwaukee Area Technical College"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            EducationCity = "Milwaukee",
-                            EducationState = "Wisconsin",
-                            EducationStreet = "6801 N. Yates Road",
-                            EducationZipCode = 53217,
-                            Email = "ShellieN19@gmail.com",
-                            FirstName = "Sheila",
-                            ImageLocation = "",
-                            LastName = "Williams",
-                            PhoneNumber = "8003478822",
-                            ProgramBio = "Stritch's story is integrated with more than 38,000 of our alumni who are positively impacting the communities in which they live, work, serve, and lead.",
-                            ProgramImageLocation = "",
-                            ProgramName = "Cardinal Stritch University"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            EducationCity = "Milwaukee",
-                            EducationState = "Wisconsin",
-                            EducationStreet = "313 N Plankington Ave Suite 209",
-                            EducationZipCode = 53303,
-                            Email = "Wendydev13@comcast.net",
-                            FirstName = "Wendy",
-                            ImageLocation = "",
-                            LastName = "Knight",
-                            PhoneNumber = "4145330639",
-                            ProgramBio = "devCodeCamp has been awarded 'Best Coding Bootcamp' by Course Report each year 2016-2020",
-                            ProgramImageLocation = "",
-                            ProgramName = "devCodeCamp"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            EducationCity = "Milwaukee",
-                            EducationState = "Wisconsin",
-                            EducationStreet = "Mellencamp Hall, Room 168A, P.O. Box 469",
-                            EducationZipCode = 52732,
-                            Email = "vets@uwm.edu",
-                            FirstName = "James",
-                            ImageLocation = "",
-                            LastName = "Schmidt",
-                            PhoneNumber = "4142296627",
-                            ProgramBio = "Wisconsin's Premier Educational State Institution",
-                            ProgramImageLocation = "",
-                            ProgramName = "University of Wisconsin - Milwaukee"
-                        });
                 });
 
             modelBuilder.Entity("VetRS.Models.VSO", b =>
