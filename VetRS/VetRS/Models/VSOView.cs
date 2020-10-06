@@ -11,6 +11,10 @@ namespace VetRS.Models
         [Display(Name = "Name")]
         public string FirstName { get; set; }
         public string LastName { get; set; }
+        [Display(Name = "Contact")]
+        public string PhoneNumber { get; set; }
+        public string EmailAddress { get; set; }
 
+      
     }
 }
