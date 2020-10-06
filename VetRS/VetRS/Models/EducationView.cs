@@ -23,12 +23,12 @@ namespace VetRS.Models
         public string ProgramBio { get; set; }
 
         [Display(Name = "Street Address")]
-        public string StreetAddress { get; set; }
-        public string State { get; set; }
-        public string City { get; set; }
+        public string EducationStreet { get; set; }
+        public string EducationCity { get; set; }
+        public string EducationState { get; set; }
 
         [Display(Name = "Zip Code")]
-        public int ZipCode { get; set; }
+        public int EducationZipCode { get; set; }
         public double Longitude { get; set; }
         public double Latitude { get; set; }
     }

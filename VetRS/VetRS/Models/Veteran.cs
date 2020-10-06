@@ -17,10 +17,10 @@ namespace VetRS.Models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string ImageLocation { get; set; }
-        public string EducationStreet { get; set; }
-        public string EducationCity { get; set; }
-        public string EducationState { get; set; }
-        public int EducationZipCode { get; set; }
+        public string VeteranStreet { get; set; }
+        public string VeteranCity { get; set; }
+        public string VeteranState { get; set; }
+        public int VeteranZipCode { get; set; }
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
         public IdentityUser IdentityUser { get; set; }

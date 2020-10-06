@@ -17,12 +17,13 @@ namespace VetRS.Models
         public string EmailAddress { get; set; }
 
         [Display(Name = "Street Address")]
-        public string StreetAddress { get; set; }
-        public string State { get; set; } 
-        public string City { get; set; }
+        public string VSOStreet { get; set; }
+        public string VSOCity { get; set; }
+        public string VSOState { get; set; }
+       
 
         [Display(Name = "Zip Code")]
-        public int ZipCode { get; set; }
+        public int VSOZipCode { get; set; }
         public double Longitude { get; set; }
         public double Latitude { get; set; }
 
