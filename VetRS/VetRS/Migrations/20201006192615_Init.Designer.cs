@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using VetRS.Data;
 
-namespace VetRS.Data.Migrations
+namespace VetRS.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20201005170129_Add-Tables")]
-    partial class AddTables
+    [Migration("20201006192615_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -50,8 +50,8 @@ namespace VetRS.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "30087c49-e717-4235-a8a1-439988c5872c",
-                            ConcurrencyStamp = "89054819-bdc3-47d3-ae1a-56ae295050a1",
+                            Id = "afc24f31-08fb-46bc-aa13-9ac3f8bc39df",
+                            ConcurrencyStamp = "818a2639-3e18-41e3-bd8e-5e7045337107",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -226,6 +226,147 @@ namespace VetRS.Data.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("VetRS.Models.Education", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EducationCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EducationState")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EducationStreet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EducationZipCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdentityUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ImageLocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProgramBio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProgramImageLocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProgramName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdentityUserId");
+
+                    b.ToTable("Education");
+                });
+
+            modelBuilder.Entity("VetRS.Models.VSO", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdentityUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ImageLocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VSOCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VSOState")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("VSOStreet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("VSOZipCode")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdentityUserId");
+
+                    b.ToTable("VSO");
+                });
+
+            modelBuilder.Entity("VetRS.Models.Veteran", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("EducationCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EducationState")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("EducationStreet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EducationZipCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdentityUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ImageLocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdentityUserId");
+
+                    b.ToTable("Veteran");
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)
@@ -275,6 +416,27 @@ namespace VetRS.Data.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("VetRS.Models.Education", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
+                });
+
+            modelBuilder.Entity("VetRS.Models.VSO", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
+                });
+
+            modelBuilder.Entity("VetRS.Models.Veteran", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
                 });
 #pragma warning restore 612, 618
         }
