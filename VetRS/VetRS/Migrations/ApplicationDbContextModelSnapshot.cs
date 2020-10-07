@@ -48,10 +48,8 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-
-                            Id = "66f9178a-3e8d-4b01-8b62-abb101386ed2",
-                            ConcurrencyStamp = "4591d093-fca3-4b34-9527-eea626306d7f",
-
+                            Id = "84e005c4-5bc7-4ab4-a1f9-abcb4072f407",
+                            ConcurrencyStamp = "1184b0ee-221c-4fe3-bdc6-b94ed911e5dd",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -260,6 +258,12 @@ namespace VetRS.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Lat")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Long")
+                        .HasColumnType("float");
+
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
@@ -290,6 +294,8 @@ namespace VetRS.Migrations
                             FirstName = "Bobby",
                             ImageLocation = "",
                             LastName = "Knight",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "2228389992",
                             ProgramBio = "Wisconsin's Premier Educational State Institution",
                             ProgramImageLocation = "",
@@ -306,6 +312,8 @@ namespace VetRS.Migrations
                             FirstName = "Mitch",
                             ImageLocation = "",
                             LastName = "Holcomb",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "9392244234",
                             ProgramBio = "Education that transforms lives, industry, and community.",
                             ProgramImageLocation = "",
@@ -322,6 +330,8 @@ namespace VetRS.Migrations
                             FirstName = "Sheila",
                             ImageLocation = "",
                             LastName = "Williams",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "8003478822",
                             ProgramBio = "Stritch's story is integrated with more than 38,000 of our alumni who are positively impacting the communities in which they live, work, serve, and lead.",
                             ProgramImageLocation = "",
@@ -338,6 +348,8 @@ namespace VetRS.Migrations
                             FirstName = "Wendy",
                             ImageLocation = "",
                             LastName = "Knight",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "4145330639",
                             ProgramBio = "devCodeCamp has been awarded 'Best Coding Bootcamp' by Course Report each year 2016-2020",
                             ProgramImageLocation = "",
@@ -349,11 +361,13 @@ namespace VetRS.Migrations
                             EducationCity = "Milwaukee",
                             EducationState = "Wisconsin",
                             EducationStreet = "Mellencamp Hall, Room 168A, P.O. Box 469",
-                            EducationZipCode = 52732,
+                            EducationZipCode = 53201,
                             Email = "vets@uwm.edu",
                             FirstName = "James",
                             ImageLocation = "",
                             LastName = "Schmidt",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "4142296627",
                             ProgramBio = "Wisconsin's Premier Educational State Institution",
                             ProgramImageLocation = "",
@@ -382,6 +396,12 @@ namespace VetRS.Migrations
 
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Lat")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Long")
+                        .HasColumnType("float");
 
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
@@ -412,6 +432,8 @@ namespace VetRS.Migrations
                             FirstName = "Aaron",
                             ImageLocation = "",
                             LastName = "Rodgers",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "9205552020",
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
@@ -425,6 +447,8 @@ namespace VetRS.Migrations
                             FirstName = "Brett",
                             ImageLocation = "",
                             LastName = "Farve",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "9203332020",
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
@@ -438,6 +462,8 @@ namespace VetRS.Migrations
                             FirstName = "Jordy",
                             ImageLocation = "",
                             LastName = "Nelson",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "5558675309",
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
@@ -451,6 +477,8 @@ namespace VetRS.Migrations
                             FirstName = "BJ",
                             ImageLocation = "",
                             LastName = "Raji",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "5552344545",
                             VSOCity = "Milwaukee",
                             VSOState = "Wisconsin",
@@ -464,6 +492,8 @@ namespace VetRS.Migrations
                             FirstName = "Bart",
                             ImageLocation = "",
                             LastName = "Starr",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "5558761515",
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
@@ -494,6 +524,12 @@ namespace VetRS.Migrations
                     b.Property<string>("LastName")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<double>("Lat")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Long")
+                        .HasColumnType("float");
+
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
@@ -523,6 +559,8 @@ namespace VetRS.Migrations
                             FirstName = "Jose",
                             ImageLocation = "",
                             LastName = "Torres",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "9203827037",
                             VeteranCity = "Beaver Dam",
                             VeteranState = "WI",
@@ -536,6 +574,8 @@ namespace VetRS.Migrations
                             FirstName = "Eric",
                             ImageLocation = "",
                             LastName = "Hill",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "5552452010",
                             VeteranCity = "Milwaukee",
                             VeteranState = "WI",
@@ -549,6 +589,8 @@ namespace VetRS.Migrations
                             FirstName = "Chesty",
                             ImageLocation = "",
                             LastName = "Puller",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "1234567891",
                             VeteranCity = "Milwaukee",
                             VeteranState = "WI",
@@ -562,6 +604,8 @@ namespace VetRS.Migrations
                             FirstName = "Lucian",
                             ImageLocation = "",
                             LastName = "Adams",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "9201119999",
                             VeteranCity = "Milwaukee",
                             VeteranState = "WI",
@@ -575,6 +619,8 @@ namespace VetRS.Migrations
                             FirstName = "Steven",
                             ImageLocation = "",
                             LastName = "Bennet",
+                            Lat = 0.0,
+                            Long = 0.0,
                             PhoneNumber = "9998883333",
                             VeteranCity = "Milwaukee",
                             VeteranState = "WI",

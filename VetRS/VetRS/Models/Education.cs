@@ -35,6 +35,8 @@ namespace VetRS.Models
         public string EducationState { get; set; }
         [Display(Name = "Education Zip Code", Order = -9)]
         public int EducationZipCode { get; set; }
+        public double Lat { get; set; }
+        public double Long { get; set; }
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
         public IdentityUser IdentityUser { get; set; }

@@ -21,6 +21,8 @@ namespace VetRS.Models
         public string VSOCity { get; set; }
         public string VSOState { get; set; }
         public int VSOZipCode { get; set; }
+        public double Lat { get; set; }
+        public double Long { get; set; }
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
         public IdentityUser IdentityUser { get; set; }

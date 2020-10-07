@@ -21,6 +21,9 @@ namespace VetRS.Models
         public string VeteranCity { get; set; }
         public string VeteranState { get; set; }
         public int VeteranZipCode { get; set; }
+        public double Lat { get; set; }
+        public double Long { get; set; }
+
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
         public IdentityUser IdentityUser { get; set; }

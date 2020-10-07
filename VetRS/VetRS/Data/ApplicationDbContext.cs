@@ -29,7 +29,6 @@ namespace VetRS.Data
                 NormalizedName = "ADMIN"
             }
             );
-
             {
                 builder.Entity<VSO>().HasData(
                     new VSO
@@ -248,13 +247,12 @@ namespace VetRS.Data
                         EducationStreet = "Mellencamp Hall, Room 168A, P.O. Box 469",
                         EducationCity = "Milwaukee",
                         EducationState = "Wisconsin",
-                        EducationZipCode = 53201 - 0469,
+                        EducationZipCode = 53201,
                     }
                     );
-
             }
+        }
+    }
 
         }
 
-    }
-}
