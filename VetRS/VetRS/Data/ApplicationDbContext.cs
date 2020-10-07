@@ -21,12 +21,29 @@ namespace VetRS.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            
             builder.Entity<IdentityRole>()
             .HasData(
             new IdentityRole
             {
-                Name = "Admin",
-                NormalizedName = "ADMIN"
+                Name = "Veteren",
+                NormalizedName = "VETERAN"
+            }
+            );
+            builder.Entity<IdentityRole>()
+            .HasData(
+            new IdentityRole
+            {
+                Name = "VSO",
+                NormalizedName = "VSO"
+            }
+            );
+            builder.Entity<IdentityRole>()
+            .HasData(
+            new IdentityRole
+            {
+                Name = "Education Rep.",
+                NormalizedName = "EDUCATION REP"
             }
             );
             {
