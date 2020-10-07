@@ -48,8 +48,8 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "a3e92e14-c0db-4fb8-912a-4b79aead2c04",
-                            ConcurrencyStamp = "779b40c0-056e-41ee-9a12-d9826915421d",
+                            Id = "1fe8bf60-e234-4946-a9d9-373b74e73c7b",
+                            ConcurrencyStamp = "14afd221-2fa6-4785-9f8e-1f216cf8a468",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
