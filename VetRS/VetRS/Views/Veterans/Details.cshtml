@@ -1,4 +1,4 @@
-﻿@model VetRS.Models.VSO
+﻿@model VetRS.Models.Veteran
 
 @{
     ViewData["Title"] = "Details";
@@ -8,7 +8,7 @@
 <h1>Details</h1>
 
 <div>
-    <h4>VSO</h4>
+    <h4>Veteran</h4>
     <hr />
     <dl class="row">
         <dt class = "col-sm-2">
@@ -42,37 +42,30 @@
             @Html.DisplayFor(model => model.ImageLocation)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VSOStreet)
+            @Html.DisplayNameFor(model => model.VeteranStreet)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VSOStreet)
+            @Html.DisplayFor(model => model.VeteranStreet)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VSOCity)
+            @Html.DisplayNameFor(model => model.VeteranCity)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VSOCity)
+            @Html.DisplayFor(model => model.VeteranCity)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VSOState)
+            @Html.DisplayNameFor(model => model.VeteranState)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VSOState)
+            @Html.DisplayFor(model => model.VeteranState)
         </dd>
         <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.VSOZipCode)
+            @Html.DisplayNameFor(model => model.VeteranZipCode)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.VSOZipCode)
+            @Html.DisplayFor(model => model.VeteranZipCode)
         </dd>
-       
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Rating)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Rating)
-        </dd>
-     
+ 
     </dl>
 </div>
 <div class="embed-responsive embed-responsive-16by9">

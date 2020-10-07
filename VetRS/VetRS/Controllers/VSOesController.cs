@@ -24,7 +24,7 @@ namespace VetRS.Controllers
         // GET: VSOes
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Veteran.Include(v => v.IdentityUser);
+            var applicationDbContext = _context.VSO.Include(v => v.IdentityUser);
             return View(await applicationDbContext.ToListAsync());
         }
 
