@@ -48,8 +48,8 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "84e005c4-5bc7-4ab4-a1f9-abcb4072f407",
-                            ConcurrencyStamp = "1184b0ee-221c-4fe3-bdc6-b94ed911e5dd",
+                            Id = "a3e92e14-c0db-4fb8-912a-4b79aead2c04",
+                            ConcurrencyStamp = "779b40c0-056e-41ee-9a12-d9826915421d",
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
@@ -406,6 +406,9 @@ namespace VetRS.Migrations
                     b.Property<string>("PhoneNumber")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
                     b.Property<string>("VSOCity")
                         .HasColumnType("nvarchar(max)");
 
@@ -435,6 +438,7 @@ namespace VetRS.Migrations
                             Lat = 0.0,
                             Long = 0.0,
                             PhoneNumber = "9205552020",
+                            Rating = 0,
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
                             VSOStreet = "Martin Luther King Ave.",
@@ -450,6 +454,7 @@ namespace VetRS.Migrations
                             Lat = 0.0,
                             Long = 0.0,
                             PhoneNumber = "9203332020",
+                            Rating = 0,
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
                             VSOStreet = "6th St.",
@@ -465,6 +470,7 @@ namespace VetRS.Migrations
                             Lat = 0.0,
                             Long = 0.0,
                             PhoneNumber = "5558675309",
+                            Rating = 0,
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
                             VSOStreet = "31st St.",
@@ -480,6 +486,7 @@ namespace VetRS.Migrations
                             Lat = 0.0,
                             Long = 0.0,
                             PhoneNumber = "5552344545",
+                            Rating = 0,
                             VSOCity = "Milwaukee",
                             VSOState = "Wisconsin",
                             VSOStreet = "22nd St.",
@@ -495,6 +502,7 @@ namespace VetRS.Migrations
                             Lat = 0.0,
                             Long = 0.0,
                             PhoneNumber = "5558761515",
+                            Rating = 0,
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
                             VSOStreet = "17th St.",

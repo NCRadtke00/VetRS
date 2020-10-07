@@ -23,6 +23,7 @@ namespace VetRS.Models
         public int VSOZipCode { get; set; }
         public double Lat { get; set; }
         public double Long { get; set; }
+        public int Rating { get; set; }
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }
         public IdentityUser IdentityUser { get; set; }
