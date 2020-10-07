@@ -29,20 +29,8 @@ namespace VetRS.Controllers
         // GET: Veterans/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var veteran = await _context.Veteran
-                .Include(v => v.IdentityUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (veteran == null)
-            {
-                return NotFound();
-            }
-
-            return View(veteran);
+            VSO VsoToView = _context.VSO.Where(v => v.Id == id).SingleOrDefault();            
+            return View(VsoToView);
         }
 
         // GET: Veterans/Create
