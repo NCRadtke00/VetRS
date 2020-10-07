@@ -1,11 +1,12 @@
-﻿@model IEnumerable<VetRS.Models.Veteran>
+﻿@model IEnumerable<VetRS.Models.VSO>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Veterans Service Organizations";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Veterans Service Organizations</h1>
+<h2>Click on a VSO's name to view their page</h2>
 
 <p>
     <a asp-action="Create">Create New</a>
@@ -27,16 +28,16 @@
             </th>
 
             <th>
-                @Html.DisplayNameFor(model => model.VeteranStreet)
+                @Html.DisplayNameFor(model => model.VSOStreet)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.VeteranCity)
+                @Html.DisplayNameFor(model => model.VSOCity)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.VeteranState)
+                @Html.DisplayNameFor(model => model.VSOState)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.VeteranZipCode)
+                @Html.DisplayNameFor(model => model.VSOZipCode)
             </th>
 
             <th></th>
@@ -62,16 +63,16 @@
                     @Html.DisplayFor(modelItem => item.ImageLocation)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.VeteranStreet)
+                    @Html.DisplayFor(modelItem => item.VSOStreet)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.VeteranCity)
+                    @Html.DisplayFor(modelItem => item.VSOCity)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.VeteranState)
+                    @Html.DisplayFor(modelItem => item.VSOState)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.VeteranZipCode)
+                    @Html.DisplayFor(modelItem => item.VSOZipCode)
                 </td>
                 @*<td>
                     @Html.DisplayFor(modelItem => item.IdentityUser.Id)
