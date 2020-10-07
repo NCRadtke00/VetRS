@@ -66,40 +66,12 @@ body {
     color: gold;
 }
 
-.sidebarContent {
-    margin-bottom: 9px;
-    min-height: 300px;
-    background-color: silver;
-    text-align: center;
-    font-size: 2em;
-}
 
-.mainContent {
-    margin-bottom: 5px;
-    min-height: 610px;
-    background-color: silver;
-    text-align: center;
-    font-size: 2em;
-}
-
-.header {
-    min-height: 140px;
-    background-color: silver;
-    text-align: center;
-    font-size: 2em;
-}
 .footer {
     position: absolute;
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    line-height: 10px; /* Vertically center the text there */
-    min-height: 40px;
-    background-color: silver;
-    text-align: center;
-    font-size: 1em;
-    border: slategray;
+    line-height: 100px; /* Vertically center the text there */
 }
-.footerRow {
-    margin: 0px;
-}
+
