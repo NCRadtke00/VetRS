@@ -36,15 +36,15 @@ namespace VetRS.Controllers
                 return NotFound();
             }
 
-            var veteran = await _context.Veteran
+            var vSO = await _context.VSO
                 .Include(v => v.IdentityUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (veteran == null)
+            if (vSO == null)
             {
                 return NotFound();
             }
 
-            return View(veteran);
+            return View(vSO);
         }
 
         // GET: VSOes/Create

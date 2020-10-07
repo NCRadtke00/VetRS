@@ -24,7 +24,7 @@ namespace VetRS.Controllers
         // GET: Veterans
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.VSO.Include(v => v.IdentityUser);
+            var applicationDbContext = _context.Veteran.Include(v => v.IdentityUser);
             return View(await applicationDbContext.ToListAsync());
         }
 
@@ -36,15 +36,15 @@ namespace VetRS.Controllers
                 return NotFound();
             }
 
-            var vSO = await _context.VSO
+            var veteran = await _context.Veteran
                 .Include(v => v.IdentityUser)
                 .FirstOrDefaultAsync(m => m.Id == id);
-            if (vSO == null)
+            if (veteran == null)
             {
                 return NotFound();
             }
 
-            return View(vSO);
+            return View(veteran);
         }
 
         // GET: Veterans/Create
