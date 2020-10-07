@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 using VetRS.Data;
 using VetRS.Models;
 
@@ -61,6 +63,16 @@ namespace VetRS.Controllers
         {
             if (ModelState.IsValid)
             {
+                string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={education.EducationStreet},+{education.EducationCity},+{education.EducationState}&key={APIKeys.GeocodeKey}";
+                HttpClient client = new HttpClient();
+                HttpResponseMessage response = await client.GetAsync(url);
+                string jsonResult = await response.Content.ReadAsStringAsync();
+                if (response.IsSuccessStatusCode)
+                {
+                    JObject geoCode = JObject.Parse(jsonResult);
+                    education.Lat = (double)geoCode["results"][0]["geometry"]["location"]["lat"];
+                    education.Long = (double)geoCode["results"][0]["geometry"]["location"]["lng"];
+                }
                 _context.Add(education);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

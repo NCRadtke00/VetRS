@@ -26,7 +26,7 @@ namespace VetRS.Data
             .HasData(
             new IdentityRole
             {
-                Name = "Veteren",
+                Name = "Veteran",
                 NormalizedName = "VETERAN"
             }
             );

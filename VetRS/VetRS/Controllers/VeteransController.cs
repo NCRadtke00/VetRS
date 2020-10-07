@@ -1,10 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
+using Newtonsoft.Json.Linq;
 using VetRS.Data;
 using VetRS.Models;
 
@@ -22,16 +24,28 @@ namespace VetRS.Controllers
         // GET: Veterans
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Veteran.Include(v => v.IdentityUser);
+            var applicationDbContext = _context.VSO.Include(v => v.IdentityUser);
             return View(await applicationDbContext.ToListAsync());
         }
 
-        // GET: Veterans/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    //VSO VsoOrEdPocToView = _context.VSO.Where(v => v.Id == id).SingleOrDefault();ToView = _context.Education.Where(e => e.Id == id).SingleOrDefault();            
-        //    //return View(VsoOrEdPocToView);
-        //}
+        //GET: Veterans/Details/5
+         public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var vSO = await _context.VSO
+                .Include(v => v.IdentityUser)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (vSO == null)
+            {
+                return NotFound();
+            }
+
+            return View(vSO);
+        }
 
         // GET: Veterans/Create
         public IActionResult Create()
@@ -47,6 +61,18 @@ namespace VetRS.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PhoneNumber,Email,ImageLocation,VeteranStreet,VeteranCity,VeteranState,VeteranZipCode,IdentityUserId")] Veteran veteran)
         {
+            string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={veteran.VeteranStreet},+{veteran.VeteranCity},+{veteran.VeteranState}&key={APIKeys.GeocodeKey}";
+            HttpClient client = new HttpClient();
+            HttpResponseMessage response = await client.GetAsync(url);
+            string jsonResult = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+            {
+                JObject geoCode = JObject.Parse(jsonResult);
+                veteran.Lat = (double)geoCode["results"][0]["geometry"]["location"]["lat"];
+                veteran.Long = (double)geoCode["results"][0]["geometry"]["location"]["lng"];
+            }
+
+
             if (ModelState.IsValid)
             {
                 _context.Add(veteran);
