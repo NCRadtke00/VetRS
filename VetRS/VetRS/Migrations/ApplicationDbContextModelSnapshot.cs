@@ -51,6 +51,7 @@ namespace VetRS.Migrations
 
                             Id = "66f9178a-3e8d-4b01-8b62-abb101386ed2",
                             ConcurrencyStamp = "4591d093-fca3-4b34-9527-eea626306d7f",
+
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
