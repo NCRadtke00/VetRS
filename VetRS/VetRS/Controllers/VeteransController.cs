@@ -29,8 +29,8 @@ namespace VetRS.Controllers
         // GET: Veterans/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            VSO VsoToView = _context.VSO.Where(v => v.Id == id).SingleOrDefault();            
-            return View(VsoToView);
+            VSO VsoOrEdPocToView = _context.VSO.Where(v => v.Id == id).SingleOrDefault(); || VSO VsoOrEdPocToView = _context.Education.Where(e => e.Id == id).SingleOrDefault();            
+            return View(VsoOrEdPocToView);
         }
 
         // GET: Veterans/Create
