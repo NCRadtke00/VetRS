@@ -48,13 +48,13 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-<<<<<<< HEAD
-                            Id = "7f35ea31-cfc1-474e-9346-efed6a2ce70f",
-                            ConcurrencyStamp = "23993739-4b76-4c87-8d76-8fb90cc9078f",
-=======
+//<<<<<<< HEAD
+                            //Id = "7f35ea31-cfc1-474e-9346-efed6a2ce70f",
+                            //ConcurrencyStamp = "23993739-4b76-4c87-8d76-8fb90cc9078f",
+//=======
                             Id = "66f9178a-3e8d-4b01-8b62-abb101386ed2",
                             ConcurrencyStamp = "4591d093-fca3-4b34-9527-eea626306d7f",
->>>>>>> 810a0ce378b180012f4bb2b1782f3fdc7b6b39cb
+//>>>>>>> 810a0ce378b180012f4bb2b1782f3fdc7b6b39cb
                             Name = "Admin",
                             NormalizedName = "ADMIN"
                         });
