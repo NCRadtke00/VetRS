@@ -48,22 +48,22 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "ae46d04d-2467-4283-ba3e-a544fe00ebf1",
-                            ConcurrencyStamp = "9040b6ac-aa41-4fc8-bae7-a5a2cb592fc6",
+                            Id = "e1d8faf6-0087-49a0-963b-71c1068ed976",
+                            ConcurrencyStamp = "e7783d88-bf1f-4f7f-b6c1-a0776116ca13",
                             Name = "Veteran",
                             NormalizedName = "VETERAN"
                         },
                         new
                         {
-                            Id = "cc273201-d740-48cf-826a-0c8ea516115b",
-                            ConcurrencyStamp = "9fe56fbe-afb9-4a77-a447-11e68208076d",
+                            Id = "d2984334-61a9-4830-9525-5197201835b5",
+                            ConcurrencyStamp = "61bbaf60-7444-4b1d-ad87-3fd1f558d499",
                             Name = "VSO",
                             NormalizedName = "VSO"
                         },
                         new
                         {
-                            Id = "03c2b971-9b45-43ba-8d5f-c6fb510ef9f7",
-                            ConcurrencyStamp = "c158ad60-1488-449e-ab46-f2fc41ab901d",
+                            Id = "4086ca7c-11ce-4720-8e2a-77de3093fd93",
+                            ConcurrencyStamp = "5c58de10-304c-4588-a4e6-9725ca40a23b",
                             Name = "Education Rep.",
                             NormalizedName = "EDUCATION REP"
                         });
