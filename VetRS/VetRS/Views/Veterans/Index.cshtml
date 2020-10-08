@@ -13,6 +13,9 @@
     <thead>
         <tr>
             <th>
+                <p1>profile</p1>
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
@@ -45,8 +48,11 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model) { 
         <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Profile</a>
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
@@ -73,10 +79,6 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.VeteranZipCode)
-            </td>
-         
-            <td>
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
             </td>
         </tr>
 }
