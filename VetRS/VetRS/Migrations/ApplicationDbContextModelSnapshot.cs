@@ -48,22 +48,22 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "408c6d65-971c-43c3-aac2-73a803fda464",
-                            ConcurrencyStamp = "d74ac3a0-1c85-4892-a440-f929a0d1051d",
+                            Id = "45e91113-4ca2-468d-8ab2-e806995dc6b3",
+                            ConcurrencyStamp = "e4f1faef-4ef0-45e3-a673-ca435dec38ca",
                             Name = "Veteran",
                             NormalizedName = "VETERAN"
                         },
                         new
                         {
-                            Id = "0a822d94-3166-4ec5-9e42-43947a3fd2d0",
-                            ConcurrencyStamp = "7e9730a7-3006-48fd-a1ef-a93869ab990b",
+                            Id = "26b13f6b-e7cc-47b4-9078-63e9b5265af0",
+                            ConcurrencyStamp = "15eb0642-e743-42e5-8ff5-77ae7e856579",
                             Name = "VSO",
                             NormalizedName = "VSO"
                         },
                         new
                         {
-                            Id = "ffac49a6-d7a6-4680-a6dd-95854df0cc97",
-                            ConcurrencyStamp = "27f05bda-db44-4692-948a-19ad689ad95f",
+                            Id = "140d8deb-a630-4b82-baaa-6b0bb321496a",
+                            ConcurrencyStamp = "03e679a8-0987-4faf-b750-562ea8726dcb",
                             Name = "Education Rep.",
                             NormalizedName = "EDUCATION REP"
                         });
@@ -387,6 +387,22 @@ namespace VetRS.Migrations
                             ProgramImageLocation = "",
                             ProgramName = "University of Wisconsin - Milwaukee"
                         });
+                });
+
+            modelBuilder.Entity("VetRS.Models.MilitaryJobTranslator", b =>
+                {
+                    b.Property<string>("MilitarySpecialtyNumber")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CivilianJobTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("MilitaryJobTitle")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("MilitarySpecialtyNumber");
+
+                    b.ToTable("MilitaryJobsTranslator");
                 });
 
             modelBuilder.Entity("VetRS.Models.VSO", b =>
