@@ -22,7 +22,7 @@ namespace VetRS.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            
+
             builder.Entity<IdentityRole>()
             .HasData(
             new IdentityRole
@@ -268,9 +268,49 @@ namespace VetRS.Data
                         EducationZipCode = 53201,
                     }
                     );
+                {
+                    builder.Entity<MilitaryJobTranslator>().HasData(
+                        new MilitaryJobTranslator
+                        {
+                            MilitarySpecialtyNumber = "3531",
+                            MilitaryJobTitle = "Motor Vehicle Operator",
+                            CivilianJobTitle = "Truck Driver"
+                        },
+                        new MilitaryJobTranslator
+                        {
+                            MilitarySpecialtyNumber = "8411",
+                            MilitaryJobTitle = "Recruiter",
+                            CivilianJobTitle = "Human Resource Specialist"
+                        },
+                        new MilitaryJobTranslator
+                        {
+                            MilitarySpecialtyNumber = "25B",
+                            MilitaryJobTitle = "Information Technology Specialist",
+                            CivilianJobTitle = "Computer and Information System Manager"
+                        },
+                        new MilitaryJobTranslator
+                        {
+                            MilitarySpecialtyNumber = "4N0",
+                            MilitaryJobTitle = "Aerospace Medical Services", 
+                            CivilianJobTitle = "Emergency Medical Technician"                            
+                        },
+                        new MilitaryJobTranslator
+                        {
+                            MilitarySpecialtyNumber = "4T0",
+                            MilitaryJobTitle = "Medical Laboratory Specialist",
+                            CivilianJobTitle = "Clinical Laboratory Technologist"                            
+                        }
+                        
+                        );
+                }
+                }
+
+
             }
         }
     }
 
-        }
+    
+    
+
 

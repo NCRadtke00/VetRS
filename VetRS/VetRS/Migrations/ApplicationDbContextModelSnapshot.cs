@@ -48,22 +48,22 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "45e91113-4ca2-468d-8ab2-e806995dc6b3",
-                            ConcurrencyStamp = "e4f1faef-4ef0-45e3-a673-ca435dec38ca",
+                            Id = "ae46d04d-2467-4283-ba3e-a544fe00ebf1",
+                            ConcurrencyStamp = "9040b6ac-aa41-4fc8-bae7-a5a2cb592fc6",
                             Name = "Veteran",
                             NormalizedName = "VETERAN"
                         },
                         new
                         {
-                            Id = "26b13f6b-e7cc-47b4-9078-63e9b5265af0",
-                            ConcurrencyStamp = "15eb0642-e743-42e5-8ff5-77ae7e856579",
+                            Id = "cc273201-d740-48cf-826a-0c8ea516115b",
+                            ConcurrencyStamp = "9fe56fbe-afb9-4a77-a447-11e68208076d",
                             Name = "VSO",
                             NormalizedName = "VSO"
                         },
                         new
                         {
-                            Id = "140d8deb-a630-4b82-baaa-6b0bb321496a",
-                            ConcurrencyStamp = "03e679a8-0987-4faf-b750-562ea8726dcb",
+                            Id = "03c2b971-9b45-43ba-8d5f-c6fb510ef9f7",
+                            ConcurrencyStamp = "c158ad60-1488-449e-ab46-f2fc41ab901d",
                             Name = "Education Rep.",
                             NormalizedName = "EDUCATION REP"
                         });
@@ -403,6 +403,38 @@ namespace VetRS.Migrations
                     b.HasKey("MilitarySpecialtyNumber");
 
                     b.ToTable("MilitaryJobsTranslator");
+
+                    b.HasData(
+                        new
+                        {
+                            MilitarySpecialtyNumber = "3531",
+                            CivilianJobTitle = "Truck Driver",
+                            MilitaryJobTitle = "Motor Vehicle Operator"
+                        },
+                        new
+                        {
+                            MilitarySpecialtyNumber = "8411",
+                            CivilianJobTitle = "Human Resource Specialist",
+                            MilitaryJobTitle = "Recruiter"
+                        },
+                        new
+                        {
+                            MilitarySpecialtyNumber = "25B",
+                            CivilianJobTitle = "Computer and Information System Manager",
+                            MilitaryJobTitle = "Information Technology Specialist"
+                        },
+                        new
+                        {
+                            MilitarySpecialtyNumber = "4N0",
+                            CivilianJobTitle = "Emergency Medical Technician",
+                            MilitaryJobTitle = "Aerospace Medical Services"
+                        },
+                        new
+                        {
+                            MilitarySpecialtyNumber = "4T0",
+                            CivilianJobTitle = "Clinical Laboratory Technologist",
+                            MilitaryJobTitle = "Medical Laboratory Specialist"
+                        });
                 });
 
             modelBuilder.Entity("VetRS.Models.VSO", b =>
