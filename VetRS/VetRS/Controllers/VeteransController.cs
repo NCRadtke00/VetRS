@@ -22,31 +22,28 @@ namespace VetRS.Controllers
         }
 
         // GET: Veterans
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? id)
         {
-            var applicationDbContext = _context.Veteran.Include(v => v.IdentityUser);
-            return View(await applicationDbContext.ToListAsync());
+            Education program = _context.Education.Where(e => e.Id == id).SingleOrDefault();
+            return View(program);
         }
 
-        //GET: Veterans/Details/5
-         public async Task<IActionResult> Details(int? id)
+        // GET: Veterans/Details/5
+        public async Task<IActionResult> Details(int? id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var veteran = await _context.Veteran
-                .Include(v => v.IdentityUser)
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (veteran == null)
-            {
-                return NotFound();
-            }
-
-            return View(veteran);
+            //if ()
+            //{
+                VSO VsoToView = _context.VSO.Where(v => v.Id == id).SingleOrDefault();
+                return View(VsoToView);
+            //}
+           //else if ()
+           // {
+           //     Education EdPocToView = _context.Education.Where(e => e.Id == id).SingleOrDefault();
+           //     return View(EdPocToView);
+           // }
         }
 
+           
         // GET: Veterans/Create
         public IActionResult Create()
         {
