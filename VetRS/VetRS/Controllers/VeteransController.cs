@@ -28,8 +28,6 @@ namespace VetRS.Controllers
         public async Task<IActionResult> Index(int? id)
         {
            
-
-
             var applicationDbContext = _context.Veteran.Include(v => v.IdentityUser);
             return View(await applicationDbContext.ToListAsync());
         }
@@ -51,9 +49,9 @@ namespace VetRS.Controllers
             }
 
             return View(veteran);
+     
         }
-
-           
+          
         // GET: Veterans/Create
         public IActionResult Create()
         {
