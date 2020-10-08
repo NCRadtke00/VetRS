@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
@@ -18,12 +19,17 @@ namespace VetRS.Controllers
 
         public VeteransController(ApplicationDbContext context)
         {
+           
+            
             _context = context;
         }
 
         // GET: Veterans
         public async Task<IActionResult> Index(int? id)
         {
+           
+
+
             var applicationDbContext = _context.Veteran.Include(v => v.IdentityUser);
             return View(await applicationDbContext.ToListAsync());
         }
@@ -31,16 +37,20 @@ namespace VetRS.Controllers
         // GET: Veterans/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            //if ()
-            //{
-                VSO VsoToView = _context.VSO.Where(v => v.Id == id).SingleOrDefault();
-                return View(VsoToView);
-            //}
-           //else if ()
-           // {
-           //     Education EdPocToView = _context.Education.Where(e => e.Id == id).SingleOrDefault();
-           //     return View(EdPocToView);
-           // }
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var veteran = await _context.Veteran
+                .Include(v => v.IdentityUser)
+                .FirstOrDefaultAsync(m => m.Id == id);
+            if (veteran == null)
+            {
+                return NotFound();
+            }
+
+            return View(veteran);
         }
 
            
