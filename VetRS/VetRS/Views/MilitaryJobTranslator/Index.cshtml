@@ -1,14 +1,12 @@
 ﻿@model IEnumerable<VetRS.Models.MilitaryJobTranslator>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Military Job Translator";
 }
 
 <h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
@@ -22,20 +20,11 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MilitaryJobTitle)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CivilianJobTitle)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.MilitarySpecialtyNumber">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.MilitarySpecialtyNumber">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.MilitarySpecialtyNumber">Delete</a>
-            </td>
-        </tr>
-}
+        <form asp-controller="MilitaryJobTranslator" asp-action="Index">
+            <p>
+                Occupational Specialty: <input type="text" name="SearchString">
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
     </tbody>
 </table>
