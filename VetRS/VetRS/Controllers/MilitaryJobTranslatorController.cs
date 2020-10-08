@@ -4,25 +4,46 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
+using SQLitePCL;
 using VetRS.Data;
+using VetRS.Models;
 
 namespace VetRS.Controllers
 {
     public class MilitaryJobTranslatorController : Controller
     {
         private readonly ApplicationDbContext _context;
-
         public MilitaryJobTranslatorController(ApplicationDbContext context)
         {
             _context = context;
         }
 
         // GET: MilitaryJobTranslatorController
-        public ActionResult Index()
+      public async Task<IActionResult>Index(string searchString)
         {
-            
-            return View();
+           
+            var jobs = from j in _context.MilitaryJobsTranslator
+                       select j;
+                                   
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                jobs = jobs.Where(s => s.MilitarySpecialtyNumber.Contains(searchString)); //311 mechanic
+                
+            }
+
+
+
+            return View(jobs);
         }
+        
+        
+        
+        
+        //public ActionResult Index()
+        //{
+        //    return View();
+        //}
 
         // GET: MilitaryJobTranslatorController/Details/5
         public ActionResult Details(int id)
