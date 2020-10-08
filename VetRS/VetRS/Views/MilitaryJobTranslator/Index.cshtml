@@ -4,7 +4,7 @@
     ViewData["Title"] = "Military Job Translator";
 }
 
-<h1>Index</h1>
+<h1>Military Job Translator</h1>
 
 
 <table class="table">
@@ -26,5 +26,17 @@
                 <input type="submit" value="Filter" />
             </p>
         </form>
+
     </tbody>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.MilitaryJobTitle)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.CivilianJobTitle)
+    </td>
+</tr>
+    }
 </table>

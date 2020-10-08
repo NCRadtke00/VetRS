@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.CodeAnalysis.CSharp.Syntax;
+using Microsoft.EntityFrameworkCore;
 using SQLitePCL;
 using VetRS.Data;
 using VetRS.Models;
@@ -31,9 +32,6 @@ namespace VetRS.Controllers
                 jobs = jobs.Where(s => s.MilitarySpecialtyNumber.Contains(searchString)); //311 mechanic
                 
             }
-
-
-
             return View(jobs);
         }
         
