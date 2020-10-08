@@ -24,8 +24,8 @@ namespace VetRS.Controllers
         // GET: Veterans
         public async Task<IActionResult> Index(int? id)
         {
-            Education program = _context.Education.Where(e => e.Id == id).SingleOrDefault();
-            return View(program);
+            var applicationDbContext = _context.Veteran.Include(v => v.IdentityUser);
+            return View(await applicationDbContext.ToListAsync());
         }
 
         // GET: Veterans/Details/5
