@@ -57,11 +57,13 @@ namespace VetRS.Data
                         PhoneNumber = "9205552020",
                         Email = "Lombardibarbie@PackersChamps.com",
                         ImageLocation = "",
-                        VSOStreet = "Martin Luther King Ave.",
+                        VSOStreet = "Martin Luther King Dr.",
                         VSOCity = "Milwaukee",
                         VSOState = "WI",
-                        VSOZipCode = 53022,
-                        Rating = 5
+                        VSOZipCode = 53212,
+                        Rating = 5,
+                        Lat = 43.066527,
+                        Long =  -87.914071
                     },
                     new VSO
                     {
@@ -74,8 +76,10 @@ namespace VetRS.Data
                         VSOStreet = "6th St.",
                         VSOCity = "Milwaukee",
                         VSOState = "WI",
-                        VSOZipCode = 53022,
-                        Rating = 4
+                        VSOZipCode = 53212,
+                        Rating = 4,
+                        Lat = 43.061505,
+                        Long = -87.918490
                     },
                     new VSO
                     {
@@ -88,8 +92,11 @@ namespace VetRS.Data
                         VSOStreet = "31st St.",
                         VSOCity = "Milwaukee",
                         VSOState = "WI",
-                        VSOZipCode = 53022,
-                        Rating = 3
+                        VSOZipCode = 53216,
+                        Rating = 3,
+                        Lat = 43.076442,
+                        Long = -87.952109
+                        
                     },
                     new VSO
                     {
@@ -102,8 +109,10 @@ namespace VetRS.Data
                         VSOStreet = "22nd St.",
                         VSOCity = "Milwaukee",
                         VSOState = "Wisconsin",
-                        VSOZipCode = 53022,
-                        Rating = 4 
+                        VSOZipCode = 53206,
+                        Rating = 4,
+                        Lat = 43.072878,
+                        Long = -87.939920
                     },
                     new VSO
                     {
@@ -116,8 +125,10 @@ namespace VetRS.Data
                         VSOStreet = "17th St.",
                         VSOCity = "Milwaukee",
                         VSOState = "WI",
-                        VSOZipCode = 53022,
-                        Rating = 5 
+                        VSOZipCode = 53206,
+                        Rating = 5,
+                        Lat = 43.065750,
+                        Long = -87.933822
                     }
                  );
             }
