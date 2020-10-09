@@ -224,10 +224,12 @@ namespace VetRS.Data
                         ProgramName = "University of Wisconsin",
                         ProgramImageLocation = "",
                         ProgramBio = "Wisconsin's Premier Educational State Institution",
-                        EducationStreet = "Surly",
+                        EducationStreet = "Mitchell St.",
                         EducationCity = "Milwaukee",
                         EducationState = "Wisconsin",
-                        EducationZipCode = 53022,
+                        EducationZipCode = 53215,
+                        Lat = 43.012317,
+                        Long = -87.955794
                     },
                     new Education
                     {
@@ -243,7 +245,9 @@ namespace VetRS.Data
                         EducationStreet = "700 W. State Street",
                         EducationCity = "Milwaukee",
                         EducationState = "Wisconsin",
-                        EducationZipCode = 53232,
+                        EducationZipCode = 53233,
+                        Lat = 43.043551,
+                        Long = -87.921151
                     },
                     new Education
                     {
@@ -260,6 +264,8 @@ namespace VetRS.Data
                         EducationCity = "Milwaukee",
                         EducationState = "Wisconsin",
                         EducationZipCode = 53217,
+                        Lat = 43.140320,
+                        Long = -87.907153
                     },
                     new Education
                     {
@@ -272,10 +278,12 @@ namespace VetRS.Data
                         ProgramName = "devCodeCamp",
                         ProgramImageLocation = "",
                         ProgramBio = "devCodeCamp has been awarded 'Best Coding Bootcamp' by Course Report each year 2016-2020",
-                        EducationStreet = "313 N Plankington Ave Suite 209",
+                        EducationStreet = "313 N Plankinton Ave Suite 209",
                         EducationCity = "Milwaukee",
                         EducationState = "Wisconsin",
-                        EducationZipCode = 53303,
+                        EducationZipCode = 53203,
+                        Lat = 43.034196,
+                        Long = -87.912330
                     },
                     new Education
                     {
@@ -291,7 +299,9 @@ namespace VetRS.Data
                         EducationStreet = "Mellencamp Hall, Room 168A, P.O. Box 469",
                         EducationCity = "Milwaukee",
                         EducationState = "Wisconsin",
-                        EducationZipCode = 53201,
+                        EducationZipCode = 53211,
+                        Lat = 43.074988,
+                        Long = -87.879600
                     }
                     );
                 {
