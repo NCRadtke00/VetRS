@@ -38,7 +38,7 @@ namespace VetRS.Models
         public double Lat { get; set; }
         public double Long { get; set; }
 
-        [Display(Name = "Gold Star", Order = -9)]
+        
         public int Rating { get; set; }
         [ForeignKey("IdentityUser")]
         public string IdentityUserId { get; set; }

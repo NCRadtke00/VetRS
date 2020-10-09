@@ -15,7 +15,7 @@
     <thead>
         <tr>
             <th>
-                <p1>profile</p1>
+                <p1>Profile</p1>
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
@@ -29,9 +29,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Email)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageLocation)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.VSOStreet)
             </th>
@@ -43,6 +41,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.VSOZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
             </th>
             <th></th>
         </tr>
@@ -65,9 +66,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Email)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageLocation)
-            </td>
+           
             <td>
                 @Html.DisplayFor(modelItem => item.VSOStreet)
             </td>
