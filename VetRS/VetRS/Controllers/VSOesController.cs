@@ -2,7 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +15,7 @@ using VetRS.Models;
 
 namespace VetRS.Controllers
 {
+    [Authorize(Roles = "VSO" )]
     public class VSOesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,8 +28,13 @@ namespace VetRS.Controllers
         // GET: VSOes
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.VSO.Include(v => v.IdentityUser);
-            return View(await applicationDbContext.ToListAsync());
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var cust = _context.VSO.Where(c => c.IdentityUserId == userId).FirstOrDefault();
+            if (cust == null)
+            {
+                return RedirectToAction("Create");
+            }
+            return View("Index","Home");
         }
 
         // GET: VSOes/Details/5
