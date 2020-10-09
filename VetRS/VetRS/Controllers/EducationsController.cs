@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -12,6 +13,7 @@ using VetRS.Models;
 
 namespace VetRS.Controllers
 {
+    [Authorize(Roles ="Education Rep.")]
     public class EducationsController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -21,12 +23,25 @@ namespace VetRS.Controllers
             _context = context;
         }
 
-        // GET: Educations
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var applicationDbContext = _context.Education.Include(e => e.IdentityUser);
-            return View(await applicationDbContext.ToListAsync());
+
+            var schools = from s in _context.Education
+                       select s;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                schools = schools.Where(s => s.ProgramName.Contains(searchString));
+
+            }
+            return View(schools);
         }
+        // GET: Educations
+        //public async Task<IActionResult> Index()
+        //{
+        //    var applicationDbContext = _context.Education.Include(e => e.IdentityUser);
+        //    return View(await applicationDbContext.ToListAsync());
+        //}
 
         // GET: Educations/Details/5
         public async Task<IActionResult> Details(int? id)
