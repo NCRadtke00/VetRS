@@ -28,7 +28,7 @@ namespace VetRS.ActionFilter
                 else if (_claimsPrincipal.IsInRole("Veteran"))
                 {
                     context.Result = new RedirectToActionResult("Index",
-                    "Veteran", null);
+                    "Veterans", null);
                 }
                 else if (_claimsPrincipal.IsInRole("Education Rep."))
                 {
