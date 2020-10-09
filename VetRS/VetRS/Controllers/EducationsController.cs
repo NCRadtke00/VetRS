@@ -14,6 +14,8 @@ using VetRS.Models;
 namespace VetRS.Controllers
 {
     [Authorize(Roles ="Education Rep.")]
+    [Authorize(Roles = "VSO")]
+    [Authorize(Roles = "Veteran")]
     public class EducationsController : Controller
     {
         private readonly ApplicationDbContext _context;
