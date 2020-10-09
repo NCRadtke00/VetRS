@@ -15,7 +15,9 @@ using VetRS.Models;
 
 namespace VetRS.Controllers
 {
-    [Authorize(Roles = "VSO" )]
+    //[Authorize(Roles = "VSO" )]
+    //[Authorize(Roles = "Veteran")]
+    //[Authorize(Roles = "Education Rep.")]
     public class VSOesController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -34,7 +36,10 @@ namespace VetRS.Controllers
             {
                 return RedirectToAction("Create");
             }
-            return View("Index","Home");
+
+            var applicationDbContext = _context.VSO.Include(v => v.IdentityUser);
+            return View(await applicationDbContext.ToListAsync());
+
         }
 
         // GET: VSOes/Details/5
@@ -68,7 +73,7 @@ namespace VetRS.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PhoneNumber,Email,ImageLocation,VSOStreet,VSOCity,VSOState,VSOZipCode,IdentityUserId")] VSO vSO)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PhoneNumber,Email,ImageLocation,VSOStreet,VSOCity,VSOState,VSOZipCode")] VSO vSO)
         {
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={vSO.VSOStreet},+{vSO.VSOCity},+{vSO.VSOState}&key={APIKeys.GeocodeKey}";
             HttpClient client = new HttpClient();
@@ -82,11 +87,13 @@ namespace VetRS.Controllers
             }
             if (ModelState.IsValid)
             {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                vSO.IdentityUserId = userId;
                 _context.Add(vSO);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", vSO.IdentityUserId);
+            
             return View(vSO);
         }
 
