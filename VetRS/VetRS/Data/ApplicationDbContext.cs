@@ -60,7 +60,8 @@ namespace VetRS.Data
                         VSOStreet = "Martin Luther King Ave.",
                         VSOCity = "Milwaukee",
                         VSOState = "WI",
-                        VSOZipCode = 53022
+                        VSOZipCode = 53022,
+                        Rating = 5
                     },
                     new VSO
                     {
@@ -73,7 +74,8 @@ namespace VetRS.Data
                         VSOStreet = "6th St.",
                         VSOCity = "Milwaukee",
                         VSOState = "WI",
-                        VSOZipCode = 53022
+                        VSOZipCode = 53022,
+                        Rating = 4
                     },
                     new VSO
                     {
@@ -86,7 +88,8 @@ namespace VetRS.Data
                         VSOStreet = "31st St.",
                         VSOCity = "Milwaukee",
                         VSOState = "WI",
-                        VSOZipCode = 53022
+                        VSOZipCode = 53022,
+                        Rating = 3
                     },
                     new VSO
                     {
@@ -99,7 +102,8 @@ namespace VetRS.Data
                         VSOStreet = "22nd St.",
                         VSOCity = "Milwaukee",
                         VSOState = "Wisconsin",
-                        VSOZipCode = 53022
+                        VSOZipCode = 53022,
+                        Rating = 4 
                     },
                     new VSO
                     {
@@ -112,7 +116,8 @@ namespace VetRS.Data
                         VSOStreet = "17th St.",
                         VSOCity = "Milwaukee",
                         VSOState = "WI",
-                        VSOZipCode = 53022
+                        VSOZipCode = 53022,
+                        Rating = 5 
                     }
                  );
             }
