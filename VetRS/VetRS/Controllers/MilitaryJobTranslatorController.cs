@@ -21,23 +21,20 @@ namespace VetRS.Controllers
         }
 
         // GET: MilitaryJobTranslatorController
-      public async Task<IActionResult>Index(string searchString)
+        public async Task<IActionResult> Index(string searchString)
         {
-           
+
             var jobs = from j in _context.MilitaryJobsTranslator
                        select j;
-                                   
+
             if (!string.IsNullOrEmpty(searchString))
             {
                 jobs = jobs.Where(s => s.MilitarySpecialtyNumber.Contains(searchString)); //311 mechanic
-                
+
             }
             return View(jobs);
         }
-        
-        
-        
-        
+
         //public ActionResult Index()
         //{
         //    return View();
@@ -112,4 +109,5 @@ namespace VetRS.Controllers
             }
         }
     }
-}
+ }
+
