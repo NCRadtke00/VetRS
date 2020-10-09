@@ -48,22 +48,22 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "f85970d3-78b2-4dbf-8004-53bd2423c33a",
-                            ConcurrencyStamp = "9ab1ff00-62ca-4a6f-949d-c83c6c476472",
+                            Id = "e95f92e3-6dd2-4794-bb53-2e9a2f852252",
+                            ConcurrencyStamp = "0784541e-59c4-44ec-897b-57d7d0832f9f",
                             Name = "Veteran",
                             NormalizedName = "VETERAN"
                         },
                         new
                         {
-                            Id = "9c2711d0-4f27-4f7d-a7f9-6b079e060417",
-                            ConcurrencyStamp = "e0eba477-de67-42a3-bfb5-0c5e255d1749",
+                            Id = "d1d3332e-108b-48db-b566-f838402711b8",
+                            ConcurrencyStamp = "8d1b3c7d-ee30-4078-a050-e45d1b2fa26e",
                             Name = "VSO",
                             NormalizedName = "VSO"
                         },
                         new
                         {
-                            Id = "ad3a814f-a925-43f3-8598-b923a6b9e564",
-                            ConcurrencyStamp = "75fe8965-ab64-4788-845c-2287a1ce01e5",
+                            Id = "f1dc3b0d-221d-45b6-ba45-225ab099ed23",
+                            ConcurrencyStamp = "4c67f2f5-7fd5-4e3c-bdd3-a1e903375ab7",
                             Name = "Education Rep.",
                             NormalizedName = "EDUCATION REP"
                         });
@@ -497,14 +497,14 @@ namespace VetRS.Migrations
                             FirstName = "Aaron",
                             ImageLocation = "",
                             LastName = "Rodgers",
-                            Lat = 0.0,
-                            Long = 0.0,
+                            Lat = 43.066527000000001,
+                            Long = -87.914071000000007,
                             PhoneNumber = "9205552020",
                             Rating = 5,
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
-                            VSOStreet = "Martin Luther King Ave.",
-                            VSOZipCode = 53022
+                            VSOStreet = "Martin Luther King Dr.",
+                            VSOZipCode = 53212
                         },
                         new
                         {
@@ -513,14 +513,14 @@ namespace VetRS.Migrations
                             FirstName = "Brett",
                             ImageLocation = "",
                             LastName = "Farve",
-                            Lat = 0.0,
-                            Long = 0.0,
+                            Lat = 43.061504999999997,
+                            Long = -87.918490000000006,
                             PhoneNumber = "9203332020",
                             Rating = 4,
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
                             VSOStreet = "6th St.",
-                            VSOZipCode = 53022
+                            VSOZipCode = 53212
                         },
                         new
                         {
@@ -529,14 +529,14 @@ namespace VetRS.Migrations
                             FirstName = "Jordy",
                             ImageLocation = "",
                             LastName = "Nelson",
-                            Lat = 0.0,
-                            Long = 0.0,
+                            Lat = 43.076442,
+                            Long = -87.952108999999993,
                             PhoneNumber = "5558675309",
                             Rating = 3,
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
                             VSOStreet = "31st St.",
-                            VSOZipCode = 53022
+                            VSOZipCode = 53216
                         },
                         new
                         {
@@ -545,14 +545,14 @@ namespace VetRS.Migrations
                             FirstName = "BJ",
                             ImageLocation = "",
                             LastName = "Raji",
-                            Lat = 0.0,
-                            Long = 0.0,
+                            Lat = 43.072878000000003,
+                            Long = -87.939920000000001,
                             PhoneNumber = "5552344545",
                             Rating = 4,
                             VSOCity = "Milwaukee",
                             VSOState = "Wisconsin",
                             VSOStreet = "22nd St.",
-                            VSOZipCode = 53022
+                            VSOZipCode = 53206
                         },
                         new
                         {
@@ -561,14 +561,14 @@ namespace VetRS.Migrations
                             FirstName = "Bart",
                             ImageLocation = "",
                             LastName = "Starr",
-                            Lat = 0.0,
-                            Long = 0.0,
+                            Lat = 43.065750000000001,
+                            Long = -87.933822000000006,
                             PhoneNumber = "5558761515",
                             Rating = 5,
                             VSOCity = "Milwaukee",
                             VSOState = "WI",
                             VSOStreet = "17th St.",
-                            VSOZipCode = 53022
+                            VSOZipCode = 53206
                         });
                 });
 
