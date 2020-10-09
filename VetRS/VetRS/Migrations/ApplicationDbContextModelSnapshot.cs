@@ -48,22 +48,22 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "e95f92e3-6dd2-4794-bb53-2e9a2f852252",
-                            ConcurrencyStamp = "0784541e-59c4-44ec-897b-57d7d0832f9f",
+                            Id = "a3007fd2-6124-40fe-bdbc-3847427c2e9e",
+                            ConcurrencyStamp = "cdf04e20-a3ee-4b4f-bdbd-11505db99130",
                             Name = "Veteran",
                             NormalizedName = "VETERAN"
                         },
                         new
                         {
-                            Id = "d1d3332e-108b-48db-b566-f838402711b8",
-                            ConcurrencyStamp = "8d1b3c7d-ee30-4078-a050-e45d1b2fa26e",
+                            Id = "c2bda2be-80dd-406f-ab79-a9ed513d4b2e",
+                            ConcurrencyStamp = "ab9dde15-7ec1-49cc-93f0-f6afd3525032",
                             Name = "VSO",
                             NormalizedName = "VSO"
                         },
                         new
                         {
-                            Id = "f1dc3b0d-221d-45b6-ba45-225ab099ed23",
-                            ConcurrencyStamp = "4c67f2f5-7fd5-4e3c-bdd3-a1e903375ab7",
+                            Id = "69dd2bd3-3c7f-4265-a181-d7ba67b96604",
+                            ConcurrencyStamp = "2c642248-45a3-4142-81be-27a5423e3b96",
                             Name = "Education Rep.",
                             NormalizedName = "EDUCATION REP"
                         });
@@ -629,8 +629,8 @@ namespace VetRS.Migrations
                             FirstName = "Jose",
                             ImageLocation = "",
                             LastName = "Torres",
-                            Lat = 0.0,
-                            Long = 0.0,
+                            Lat = 43.459986999999998,
+                            Long = -88.819759000000005,
                             PhoneNumber = "9203827037",
                             VeteranCity = "Beaver Dam",
                             VeteranState = "WI",
@@ -644,13 +644,13 @@ namespace VetRS.Migrations
                             FirstName = "Eric",
                             ImageLocation = "",
                             LastName = "Hill",
-                            Lat = 0.0,
-                            Long = 0.0,
+                            Lat = 43.041615,
+                            Long = -87.936449999999994,
                             PhoneNumber = "5552452010",
                             VeteranCity = "Milwaukee",
                             VeteranState = "WI",
                             VeteranStreet = "Kilbourn Ave",
-                            VeteranZipCode = 53022
+                            VeteranZipCode = 53233
                         },
                         new
                         {
@@ -659,13 +659,13 @@ namespace VetRS.Migrations
                             FirstName = "Chesty",
                             ImageLocation = "",
                             LastName = "Puller",
-                            Lat = 0.0,
-                            Long = 0.0,
+                            Lat = 43.038843999999997,
+                            Long = -87.905073999999999,
                             PhoneNumber = "1234567891",
                             VeteranCity = "Milwaukee",
                             VeteranState = "WI",
                             VeteranStreet = "W. Wisconsin Ave.",
-                            VeteranZipCode = 53022
+                            VeteranZipCode = 53202
                         },
                         new
                         {
@@ -674,13 +674,13 @@ namespace VetRS.Migrations
                             FirstName = "Lucian",
                             ImageLocation = "",
                             LastName = "Adams",
-                            Lat = 0.0,
-                            Long = 0.0,
+                            Lat = 43.043458999999999,
+                            Long = -87.909976,
                             PhoneNumber = "9201119999",
                             VeteranCity = "Milwaukee",
                             VeteranState = "WI",
                             VeteranStreet = "E. State St.",
-                            VeteranZipCode = 53022
+                            VeteranZipCode = 53202
                         },
                         new
                         {
@@ -689,13 +689,13 @@ namespace VetRS.Migrations
                             FirstName = "Steven",
                             ImageLocation = "",
                             LastName = "Bennet",
-                            Lat = 0.0,
-                            Long = 0.0,
+                            Lat = 43.046976999999998,
+                            Long = -87.906662999999995,
                             PhoneNumber = "9998883333",
                             VeteranCity = "Milwaukee",
                             VeteranState = "WI",
                             VeteranStreet = "E. Knapp St.",
-                            VeteranZipCode = 53022
+                            VeteranZipCode = 53202
                         });
                 });
 

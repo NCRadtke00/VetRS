@@ -145,7 +145,9 @@ namespace VetRS.Data
                         VeteranStreet = "515 Walnut St",
                         VeteranCity = "Beaver Dam",
                         VeteranState = "WI",
-                        VeteranZipCode = 53916
+                        VeteranZipCode = 53916,
+                        Lat = 43.459987,
+                        Long = -88.819759
                     },
                     new Veteran
                     {
@@ -158,7 +160,9 @@ namespace VetRS.Data
                         VeteranStreet = "Kilbourn Ave",
                         VeteranCity = "Milwaukee",
                         VeteranState = "WI",
-                        VeteranZipCode = 53022
+                        VeteranZipCode = 53233,
+                        Lat = 43.041615,
+                        Long = -87.936450
                     },
                     new Veteran
                     {
@@ -171,7 +175,9 @@ namespace VetRS.Data
                         VeteranStreet = "W. Wisconsin Ave.",
                         VeteranCity = "Milwaukee",
                         VeteranState = "WI",
-                        VeteranZipCode = 53022
+                        VeteranZipCode = 53202,
+                        Lat = 43.038844,
+                        Long = -87.905074
                     },
                     new Veteran
                     {
@@ -184,7 +190,9 @@ namespace VetRS.Data
                         VeteranStreet = "E. State St.",
                         VeteranCity = "Milwaukee",
                         VeteranState = "WI",
-                        VeteranZipCode = 53022
+                        VeteranZipCode = 53202,
+                        Lat = 43.043459,
+                        Long = -87.909976
                     },
                     new Veteran
                     {
@@ -197,7 +205,9 @@ namespace VetRS.Data
                         VeteranStreet = "E. Knapp St.",
                         VeteranCity = "Milwaukee",
                         VeteranState = "WI",
-                        VeteranZipCode = 53022
+                        VeteranZipCode = 53202,
+                        Lat = 43.046977,
+                        Long = -87.906663
                     }
                     );
             }
