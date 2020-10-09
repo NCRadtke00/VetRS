@@ -13,6 +13,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using VetRS.Hubs;
+using System.Web.Routing;
+using Owin;
+using Microsoft.Owin;
+using Microsoft.AspNetCore.Mvc;
 
 namespace VetRS
 {
@@ -39,6 +43,7 @@ namespace VetRS
             services.AddControllersWithViews();
             services.AddRazorPages();
             services.AddSignalR();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
