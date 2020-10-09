@@ -1,4 +1,7 @@
 ﻿@model VetRS.Models.VSO
+@section Styles {
+    <link rel="stylesheet" href="~/css/user.css" />
+}
 
 @{
     ViewData["Title"] = "Details";
@@ -35,7 +38,7 @@
         <dd class="col-sm-10">
             @Html.DisplayFor(model => model.Email)
         </dd>
-       
+
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.VSOStreet)
         </dt>

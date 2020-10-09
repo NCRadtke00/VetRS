@@ -1,4 +1,7 @@
 ﻿@model IEnumerable<VetRS.Models.MilitaryJobTranslator>
+@section Styles {
+    <link rel="stylesheet" href="~/css/user.css" />
+}
 
 @{
     ViewData["Title"] = "Military Job Translator";
@@ -30,15 +33,15 @@
     </tbody>
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        
-        <a asp-action="Details" asp-route-id="@item.MilitarySpecialtyNumber"> @Html.DisplayFor(modelItem => item.MilitaryJobTitle)</a>
-    </td>
+        <tr>
+            <td>
 
-    <td>
-        @Html.DisplayFor(modelItem => item.CivilianJobTitle)
-    </td>
-</tr>
+                <a asp-action="Details" asp-route-id="@item.MilitarySpecialtyNumber"> @Html.DisplayFor(modelItem => item.MilitaryJobTitle)</a>
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.CivilianJobTitle)
+            </td>
+        </tr>
     }
 </table>
