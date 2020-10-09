@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -29,7 +30,13 @@ namespace VetRS.Controllers
         // GET: Veterans
         public async Task<IActionResult> Index(int? id)
         {
-           
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var cust = _context.Veteran.Where(c => c.IdentityUserId == userId).FirstOrDefault();
+            if (cust == null)
+            {
+                return RedirectToAction("Create");
+            }
+
             var applicationDbContext = _context.Veteran.Include(v => v.IdentityUser);
             return View(await applicationDbContext.ToListAsync());
         }
@@ -57,7 +64,7 @@ namespace VetRS.Controllers
         // GET: Veterans/Create
         public IActionResult Create()
         {
-            ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id");
+           // ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id");
             return View();
         }
 
@@ -66,7 +73,7 @@ namespace VetRS.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PhoneNumber,Email,ImageLocation,VeteranStreet,VeteranCity,VeteranState,VeteranZipCode,IdentityUserId")] Veteran veteran)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PhoneNumber,Email,ImageLocation,VeteranStreet,VeteranCity,VeteranState,VeteranZipCode")] Veteran veteran)
         {
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={veteran.VeteranStreet},+{veteran.VeteranCity},+{veteran.VeteranState}&key={APIKeys.GeocodeKey}";
             HttpClient client = new HttpClient();
@@ -78,15 +85,15 @@ namespace VetRS.Controllers
                 veteran.Lat = (double)geoCode["results"][0]["geometry"]["location"]["lat"];
                 veteran.Long = (double)geoCode["results"][0]["geometry"]["location"]["lng"];
             }
-
-
             if (ModelState.IsValid)
             {
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                veteran.IdentityUserId = userId;
                 _context.Add(veteran);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", veteran.IdentityUserId);
+
             return View(veteran);
         }
 
