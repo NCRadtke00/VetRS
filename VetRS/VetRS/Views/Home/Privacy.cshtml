@@ -1,13 +1,16 @@
-﻿@{
+﻿@section Styles {
+    <link rel="stylesheet" href="~/css/user.css" />
+}
+@{
     ViewData["Title"] = "Contact us";
     string url = "https://cdn.jsdelivr.net/npm/@aspnet/signalr@1.0.0-rc1-update1/dist/browser/signalr.min.js";
 }
 <h1>@ViewData["Title"]</h1>
 <head>
-<script src="@url"></script>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="@url"></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <!------ Include the above in your HEAD tag ---------->
 <div class="container-fluid h-100">
@@ -482,7 +485,7 @@
     </div>
     <script src="~/js/signalr/dist/browser/signalr.js"></script>
     <script src="~/js/chat.js"></script>*@
-    
+
 <form>
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -533,5 +536,4 @@
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>
-        
-   
+

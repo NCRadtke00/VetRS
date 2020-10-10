@@ -1,4 +1,7 @@
 ﻿@model VetRS.Models.MilitaryJobTranslator
+@section Styles {
+    <link rel="stylesheet" href="~/css/user.css" />
+}
 
 @{
     ViewData["Title"] = "Details";
@@ -10,21 +13,21 @@
     <h4>MilitaryJobTranslator</h4>
 
     <dl class="row">
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.MilitaryJobTitle)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.MilitaryJobTitle)
         </dd>
-        <dt class = "col-sm-2">
+        <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.CivilianJobTitle)
         </dt>
-        <dd class = "col-sm-10">
+        <dd class="col-sm-10">
             @Html.DisplayFor(model => model.CivilianJobTitle)
         </dd>
     </dl>
 </div>
 <div>
-    
+
     <a asp-action="Index">Back to List</a>
 </div>

@@ -1,12 +1,15 @@
 ﻿@model IEnumerable<VetRS.Models.Education>
 
+@section Styles {
+    <link rel="stylesheet" href="~/css/user.css" />
+}
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h1 class="text-center">VA Approved Education Programs</h1>
-
+<br />
 
 <table class="table">
     <thead>
@@ -78,11 +81,11 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Email)
                 </td>
-               
+
                 <td>
                     @Html.DisplayFor(modelItem => item.ProgramName)
-               </td>
-                
+                </td>
+
                 <td>
                     @Html.DisplayFor(modelItem => item.ProgramBio)
                 </td>

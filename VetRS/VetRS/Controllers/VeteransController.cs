@@ -15,9 +15,9 @@ using VetRS.Models;
 
 namespace VetRS.Controllers
 {
-    [Authorize(Roles = "Veteran")]
-    [Authorize(Roles = "Education Rep.")]
-    [Authorize(Roles = "VSO")]
+    //[Authorize(Roles = "Veteran")]
+    //[Authorize(Roles = "Education Rep.")]
+    //[Authorize(Roles = "VSO")]
     public class VeteransController : Controller
     {
         private readonly ApplicationDbContext _context;
@@ -96,7 +96,7 @@ namespace VetRS.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            return View(veteran);
+            return View (veteran);
         }
 
         // GET: Veterans/Edit/5
