@@ -1,2 +1,11 @@
 ﻿body {
 }
+.logo {
+    position: absolute;
+    top: 60px;
+    left: 80px;
+    height: 100px;
+    background-size: 100px;
+    margin-top: 10px;
+    
+}
