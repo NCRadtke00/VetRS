@@ -20,6 +20,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using VetRS.ActionFilter;
 using Microsoft.AspNetCore.Http;
+using VetRS.Models;
+
 
 namespace VetRS
 {
@@ -43,8 +45,8 @@ namespace VetRS
             .AddEntityFrameworkStores<ApplicationDbContext>()
             .AddDefaultUI()
             .AddDefaultTokenProviders();
-            services.AddScoped<ClaimsPrincipal>(s =>
-s.GetService<IHttpContextAccessor>().HttpContext.User);
+            services.AddScoped<ClaimsPrincipal>(s => s.GetService<IHttpContextAccessor>().HttpContext.User);
+            services.AddDistributedMemoryCache();
             services.AddControllers(config =>
             {
                 config.Filters.Add(typeof(GlobalRouting));
@@ -53,6 +55,13 @@ s.GetService<IHttpContextAccessor>().HttpContext.User);
             services.AddRazorPages();
             services.AddSignalR();
             services.AddMvc();
+            
+            services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromSeconds(5000);
+                options.Cookie.HttpOnly = true;
+                options.Cookie.IsEssential = true;
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -69,6 +78,7 @@ s.GetService<IHttpContextAccessor>().HttpContext.User);
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            //db.Database.EnsureCreated();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
@@ -76,14 +86,15 @@ s.GetService<IHttpContextAccessor>().HttpContext.User);
 
             app.UseAuthentication();
             app.UseAuthorization();
-
+            app.UseSession();
             app.UseEndpoints(endpoints =>
-            {
+            { 
+                endpoints.MapHub<ChatHub>("/chathub");
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
-                endpoints.MapRazorPages();
-                endpoints.MapHub<ChatHub>("/chathub");
+                //endpoints.MapRazorPages(); ////this is not in the demo
+               
             });
         }
     }

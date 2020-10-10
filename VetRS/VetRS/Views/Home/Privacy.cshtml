@@ -1,490 +1,60 @@
-﻿@section Styles {
-    <link rel="stylesheet" href="~/css/user.css" />
-}
-@{
-    ViewData["Title"] = "Contact us";
-    string url = "https://cdn.jsdelivr.net/npm/@aspnet/signalr@1.0.0-rc1-update1/dist/browser/signalr.min.js";
-}
-<h1>@ViewData["Title"]</h1>
-<head>
-    <script src="@url"></script>
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<!------ Include the above in your HEAD tag ---------->
-<div class="container-fluid h-100">
-    <div class="row justify-content-center h-100">
-        <div class="col-md-4 col-xl-3 chat">
-            <div class="card mb-sm-3 mb-md-0 contacts_card">
-                <div class="card-header">
-                    <div class="input-group">
-                        <input type="text" placeholder="Search..." name="" class="form-control search">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text search_btn"><i class="fas fa-search"></i></span>
-                            <!-----------where is this searching from-->
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body contacts_body">
-                    <ui class="contacts">
-                        <div id="onlineUsersList"></div>
-                    </ui>
-                </div>
-                <div class="card-footer"></div>
-            </div>
-        </div>
-        <div class="col-md-8 col-xl-6 chat">
-            <div class="card">
-                <div class="card-header msg_head">
-                    <div class="d-flex bd-highlight">
-                        <div class="user_info">
-                            <span>Chat with : <span id="chat-with-id"></span></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body msg_card_body">
-                    <ul>
-                        <li id="messageListId"></li>
-                    </ul>
-                    @*<div id="receivedMessageId"></div>
-                        <div id="ownMessageId"></div>*@
-                </div>
-                <div class="card-footer">
-                    <div class="input-group">
-                        <div class="input-group-append">
-                            <span class="input-group-text attach_btn"><i class="fas fa-paperclip"></i></span>
-                        </div>
-                        <textarea name="" class="form-control type_msg" id="messageInput" placeholder="Type your message......">
-                         </textarea>
-                        <div class="input-group-append">
-                            <span class="input-group-text send_btn" id="sendButton"><i class="fas fa-location-arrow"></i></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="clearfix"></div>
-</div>
-<script>
-    const connection = new signalR.HubConnectionBuilder()
-        .configureLogging(signalR.LogLevel.Debug)
-        .withUrl("https://localhost:44389/Home/Privacy")
-        .configureLogging(signalR.LogLevel.Information)
-        .build();
-    connection.start().then(() => {
-    });
-    //define unique id for send message
-    var receiverId = function (id) {
-        $('#chat-with-id').text(id);
+﻿@*@section Styles {
+        <link rel="stylesheet" href="~/css/user.css" />
     }
-    var sendMessage = function () {
-        const message = document.getElementById("messageInput").value;
-        connection.invoke("SendMessage", message, $('#chat-with-id').text()).then((result) => {
-        }).catch(err => console.error(err.toString()));
-        event.preventDefault();
+    @{
+        ViewData["Title"] = "Contact us";
+        //string url = "https://cdn.jsdelivr.net/npm/@aspnet/signalr@1.0.0-rc1-update1/dist/browser/signalr.min.js";
     }
-    document.getElementById("sendButton").addEventListener("click", event => {
-        sendMessage();
-    });
-    $("#messageInput").keydown(function (e) {
-        if (e.keyCode == 13) {
-            sendMessage();
-            e.preventDefault();
-        }
-    });
-    connection.on("OnlineUserList", (connectionId) => {
-        console.log(connectionId)
-        $('#onlineUsersList').append('<li class= "active" onclick=receiverId(' + "'" + connectionId + "'" + ')>' +
-            '<div class="d-flex bd-highlight">' +
-            '<div class="img_cont">' +
-            //'<img src="http://www.findandsolve.com/icon.png" alt="find and solve" class="rounded-circle user_img">' +
-            '<span class="online_icon"></span></div>' +
-            '<div class="user_info">' +
-            '<span>Unique User Id</span>' +
-            '<p>' + connectionId + '</p></div> </div></li>'
-        )
-    });
-    connection.on("OwnMessage", (message) => {
-        console.log('ownmessage');
-        console.log(message);
-        $('#messageListId').append('<li><div class="d-flex justify-content-end mb-4">' +
-            '<div class= ""msg_cotainer">' + message + '<span class= "msg_time_send" ></span></div >' +
-            '<div class="img_cont_msg">' +
-            '<img src="http://www.findandsolve.com/icon.png" alt="VetRS" class="rounded-circle user_img_msg"></div > </div ></li > ')
-    });
-    connection.on("ReceiveMessage", (message, senderId) => {
-        $('#chat-with-id').text(senderId);
-        $('#messageListId').append('<li><div class="d-flex justify-content-start mb-4">' +
-            '<div class="img_cont_msg">' +
-            '<img src="http://www.findandsolve.com/icon.png" alt="VetRS" class="rounded-circle user_img_msg"> </div> ' +
-            '<div class= ""msg_cotainer">' + message + '<span class= "msg_time_send" ></span></div >' +
-            '</div ></li>')
-    });
-</script>
-<!--<head>
-    <title></title>
+    <h1>@ViewData["Title"]</h1>*@
+
+
+@model IEnumerable<VetRS.Models.User>
+
+@{ ViewData["Title"] = "Index";
+                Layout = "~/Views/Shared/_Layout.cshtml"; }
+
+<h1>Index</h1>
+
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Password)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Password)
+                </td>
+                <td>
+                    <a asp-action="ShowChatRoom" asp-controller="Message" asp-route-userName="@item.UserName">Mesaj</a>
+                </td>
+            </tr>
+}
+    </tbody>
+</table>
 
-    <link type="text/css" rel="stylesheet" href="Css/ChatStyle.css" />
-    <link rel="stylesheet" href="/Css/JQueryUI/themes/base/jquery.ui.all.css">-->
-<!--Script references. -->
-<!--Reference the jQuery library. -->
-<!--<script src="/Scripts/jquery-1.8.2.min.js"></script>
-
-<script src="/Scripts/ui/jquery.ui.core.js"></script>
-<script src="/Scripts/ui/jquery.ui.widget.js"></script>
-<script src="/Scripts/ui/jquery.ui.mouse.js"></script>
-<script src="/Scripts/ui/jquery.ui.draggable.js"></script>
-<script src="/Scripts/ui/jquery.ui.resizable.js"></script>-->
-<!--Reference the SignalR library. -->
-<!--<script src="/Scripts/jquery.signalR-1.0.0.js"></script>-->
-<!--Reference the autogenerated SignalR hub script. -->
-<!--<script src="/signalr/hubs"></script>
-
-    <script type="text/javascript">
-
-        $(function () {
-
-            setScreen(false);
-
-            // Declare a proxy to reference the hub.
-            var chatHub = $.connection.chatHub;
-
-            registerClientMethods(chatHub);
-
-            // Start Hub
-            $.connection.hub.start().done(function () {
-
-                registerEvents(chatHub)
-
-            });
-
-        });
-
-        function setScreen(isLogin) {
-
-            if (!isLogin) {
-
-                $("#divChat").hide();
-                $("#divLogin").show();
-            }
-            else {
-
-                $("#divChat").show();
-                $("#divLogin").hide();
-            }
-
-        }
-
-        function registerEvents(chatHub) {
-
-            $("#btnStartChat").click(function () {
-
-                var name = $("#txtNickName").val();
-                if (name.length > 0) {
-                    chatHub.server.connect(name);
-                }
-                else {
-                    alert("Please enter name");
-                }
-
-            });
-
-
-            $('#btnSendMsg').click(function () {
-
-                var msg = $("#txtMessage").val();
-                if (msg.length > 0) {
-
-                    var userName = $('#hdUserName').val();
-                    chatHub.server.sendMessageToAll(userName, msg);
-                    $("#txtMessage").val('');
-                }
-            });
-
-
-            $("#txtNickName").keypress(function (e) {
-                if (e.which == 13) {
-                    $("#btnStartChat").click();
-                }
-            });
-
-            $("#txtMessage").keypress(function (e) {
-                if (e.which == 13) {
-                    $('#btnSendMsg').click();
-                }
-            });
-
-
-        }
-
-        function registerClientMethods(chatHub) {
-
-            // Calls when user successfully logged in
-            chatHub.client.onConnected = function (id, userName, allUsers, messages) {
-
-                setScreen(true);
-
-                $('#hdId').val(id);
-                $('#hdUserName').val(userName);
-                $('#spanUser').html(userName);
-
-                // Add All Users
-                for (i = 0; i < allUsers.length; i++) {
-
-                    AddUser(chatHub, allUsers[i].ConnectionId, allUsers[i].UserName);
-                }
-
-                // Add Existing Messages
-                for (i = 0; i < messages.length; i++) {
-
-                    AddMessage(messages[i].UserName, messages[i].Message);
-                }
-
-
-            }
-
-            // On New User Connected
-            chatHub.client.onNewUserConnected = function (id, name) {
-
-                AddUser(chatHub, id, name);
-            }
-
-
-            // On User Disconnected
-            chatHub.client.onUserDisconnected = function (id, userName) {
-
-                $('#' + id).remove();
-
-                var ctrId = 'private_' + id;
-                $('#' + ctrId).remove();
-
-
-                var disc = $('<div class="disconnect">"' + userName + '" logged off.</div>');
-
-                $(disc).hide();
-                $('#divusers').prepend(disc);
-                $(disc).fadeIn(200).delay(2000).fadeOut(200);
-
-            }
-
-            chatHub.client.messageReceived = function (userName, message) {
-
-                AddMessage(userName, message);
-            }
-
-
-            chatHub.client.sendPrivateMessage = function (windowId, fromUserName, message) {
-
-                var ctrId = 'private_' + windowId;
-
-
-                if ($('#' + ctrId).length == 0) {
-
-                    createPrivateChatWindow(chatHub, windowId, ctrId, fromUserName);
-
-                }
-
-                $('#' + ctrId).find('#divMessage').append('<div class="message"><span class="userName">' + fromUserName + '</span>: ' + message + '</div>');
-
-                // set scrollbar
-                var height = $('#' + ctrId).find('#divMessage')[0].scrollHeight;
-                $('#' + ctrId).find('#divMessage').scrollTop(height);
-
-            }
-
-        }
-
-        function AddUser(chatHub, id, name) {
-
-            var userId = $('#hdId').val();
-
-            var code = "";
-
-            if (userId == id) {
-
-                code = $('<div class="loginUser">' + name + "</div>");
-
-            }
-            else {
-
-                code = $('<a id="' + id + '" class="user" >' + name + '<a>');
-
-                $(code).dblclick(function () {
-
-                    var id = $(this).attr('id');
-
-                    if (userId != id)
-                        OpenPrivateChatWindow(chatHub, id, name);
-
-                });
-            }
-
-            $("#divusers").append(code);
-
-        }
-
-        function AddMessage(userName, message) {
-            $('#divChatWindow').append('<div class="message"><span class="userName">' + userName + '</span>: ' + message + '</div>');
-
-            var height = $('#divChatWindow')[0].scrollHeight;
-            $('#divChatWindow').scrollTop(height);
-        }
-
-        function OpenPrivateChatWindow(chatHub, id, userName) {
-
-            var ctrId = 'private_' + id;
-
-            if ($('#' + ctrId).length > 0) return;
-
-            createPrivateChatWindow(chatHub, id, ctrId, userName);
-
-        }
-
-        function createPrivateChatWindow(chatHub, userId, ctrId, userName) {
-
-            var div = '<div id="' + ctrId + '" class="ui-widget-content draggable" rel="0">' +
-                '<div class="header">' +
-                '<div  style="float:right;">' +
-                '<img id="imgDelete"  style="cursor:pointer;" src="/Images/delete.png"/>' +
-                '</div>' +
-
-                '<span class="selText" rel="0">' + userName + '</span>' +
-                '</div>' +
-                '<div id="divMessage" class="messageArea">' +
-
-                '</div>' +
-                '<div class="buttonBar">' +
-                '<input id="txtPrivateMessage" class="msgText" type="text"   />' +
-                '<input id="btnSendMessage" class="submitButton button" type="button" value="Send"   />' +
-                '</div>' +
-                '</div>';
-
-            var $div = $(div);
-
-            // DELETE BUTTON IMAGE
-            $div.find('#imgDelete').click(function () {
-                $('#' + ctrId).remove();
-            });
-
-            // Send Button event
-            $div.find("#btnSendMessage").click(function () {
-
-                $textBox = $div.find("#txtPrivateMessage");
-                var msg = $textBox.val();
-                if (msg.length > 0) {
-
-                    chatHub.server.sendPrivateMessage(userId, msg);
-                    $textBox.val('');
-                }
-            });
-
-            // Text Box event
-            $div.find("#txtPrivateMessage").keypress(function (e) {
-                if (e.which == 13) {
-                    $div.find("#btnSendMessage").click();
-                }
-            });
-
-            AddDivToContainer($div);
-
-        }
-
-        function AddDivToContainer($div) {
-            $('#divContainer').prepend($div);
-
-            $div.draggable({
-
-                handle: ".header",
-                stop: function () {
-
-                }
-            });
-
-            ////$div.resizable({
-            ////    stop: function () {
-
-            ////    }
-            ////});
-
-        }
-
-    </script>
-
-</head>
-
-<body>
-    <div id="header">
-        SignalR Chat Room
-    </div>
-    <br />
-    <br />
-    <br />
-
-    <div id="divContainer">
-        <div id="divLogin" class="login">
-            <div>
-                Your Name:<br />
-                <input id="txtNickName" type="text" class="textBox" />
-            </div>
-            <div id="divButton">
-                <input id="btnStartChat" type="button" class="submitButton" value="Start Chat" />
-            </div>
-        </div>
-
-        <div id="divChat" class="chatRoom">
-            <div class="title">
-                Welcome to Chat Room [<span id='spanUser'></span>]
-
-            </div>
-            <div class="content">
-                <div id="divChatWindow" class="chatWindow">
-                </div>
-                <div id="divusers" class="users">
-                </div>
-            </div>
-            <div class="messageBar">
-                <input class="textbox" type="text" id="txtMessage" />
-                <input id="btnSendMsg" type="button" value="Send" class="submitButton" />
-            </div>
-        </div>
-
-        <input id="hdId" type="hidden" />
-        <input id="hdUserName" type="hidden" />
-    </div>
-
-</body>
-</html>-->
-@*<div class="container">
-        <div class="row">&nbsp;</div>
-        <div class="row">
-            <div class="col-2">User</div>
-            <div class="col-4"><input type="text" id="userInput" /></div>
-        </div>
-        <div class="row">
-            <div class="col-2">Message</div>
-            <div class="col-4"><input type="text" id="messageInput" /></div>
-        </div>
-        <div class="row">&nbsp;</div>
-        <div class="row">
-            <div class="col-6">
-                <input type="button" id="sendButton" value="Send Message" />
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-12">
-            <hr />
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <ul id="messagesList"></ul>
-        </div>
-    </div>
-    <script src="~/js/signalr/dist/browser/signalr.js"></script>
-    <script src="~/js/chat.js"></script>*@
 
 <form>
     <div class="form-row">

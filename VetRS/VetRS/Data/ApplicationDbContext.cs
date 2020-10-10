@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using VetRS.Models;
+using System.Linq;
+using System.Threading.Tasks;
+
 
 namespace VetRS.Data
 {
@@ -19,10 +22,39 @@ namespace VetRS.Data
         public DbSet<Education> Education { get; set; }
         public DbSet<Veteran> Veteran { get; set; }
         public DbSet<MilitaryJobTranslator> MilitaryJobsTranslator { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Message> Messages { get; set; }
+        public DbSet<ChatRoom> ChatRooms { get; set; }
+        public DbSet<ChatRoomUser> ChatRoomUsers { get; set; }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(GetConnectionString());
+            optionsBuilder.EnableSensitiveDataLogging();
+            //optionsBuilder.UseLazyLoadingProxies(); cant get this to work
+        }
+
+        private static string GetConnectionString()
+        {
+            const string databaseName = "ExampleSignalR";
+
+            return $"Server=localhost;" +
+                   $"database={databaseName};" +
+                   $"Trusted_Connection = True;" +
+                   $"MultipleActiveResultSets = True;" +
+                    $"pooling=true;";
+        }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
+            builder.Entity<ChatRoomUser>(b => b.HasOne<User>(navigationExpression: uf => uf.User)
+           .WithMany(navigationExpression: nf => nf.ChatRoomUsers)
+           .HasForeignKey(nf => nf.UserId));
 
+            builder.Entity<ChatRoomUser>(b => b.HasOne<ChatRoom>(navigationExpression: uf => uf.ChatRoom)
+           .WithMany(navigationExpression: nf => nf.ChatRoomUsers)
+           .HasForeignKey(nf => nf.ChatRoomId));
+
+            builder.Entity<ChatRoomUser>(b => b.HasKey(x => new { x.UserId, x.ChatRoomId }));
             builder.Entity<IdentityRole>()
             .HasData(
             new IdentityRole

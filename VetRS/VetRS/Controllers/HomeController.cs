@@ -13,10 +13,13 @@ namespace VetRS.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ApplicationDbContext db;
 
-        public HomeController(ILogger<HomeController> logger)
+
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
         {
             _logger = logger;
+            this.db = db;
         }
         //private readonly ApplicationDbContext _context;
 
@@ -39,7 +42,7 @@ namespace VetRS.Controllers
             //}
             //eduVSOViewModel.educations = edu;
             //eduVSOViewModel.vSOs = vso;
-            return View();
+            return View(db.Users.ToList());
         }
 
         public IActionResult Privacy()

@@ -48,22 +48,22 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "26b59bcb-2507-469d-96cb-75ee09b7e152",
-                            ConcurrencyStamp = "9bb58257-2efe-4448-9cf2-5b3165aca541",
+                            Id = "e17a0a8a-807c-4828-81f7-d69e86ddbf35",
+                            ConcurrencyStamp = "a0afc040-ab57-486b-99e4-2f756855dffa",
                             Name = "Veteran",
                             NormalizedName = "VETERAN"
                         },
                         new
                         {
-                            Id = "328ceafc-d6f4-4ba4-9fe1-32cc2746cc3f",
-                            ConcurrencyStamp = "621b6a87-55a1-4aca-91af-27aa30e03f8e",
+                            Id = "63191205-3f62-46fb-9b6a-76b940e7862c",
+                            ConcurrencyStamp = "be2f16ea-ffef-4975-98de-bedecf3fba01",
                             Name = "VSO",
                             NormalizedName = "VSO"
                         },
                         new
                         {
-                            Id = "9fc90fce-42ba-4f4a-8d4c-a474dfacaa7d",
-                            ConcurrencyStamp = "3abf294c-e04b-4103-a017-57dd5352cd8e",
+                            Id = "14cb35cc-7d5b-4ff6-bf41-8ad682ae9821",
+                            ConcurrencyStamp = "84c546bc-5798-4759-b689-8b62f9c48174",
                             Name = "Education Rep.",
                             NormalizedName = "EDUCATION REP"
                         });
@@ -238,6 +238,33 @@ namespace VetRS.Migrations
                     b.ToTable("AspNetUserTokens");
                 });
 
+            modelBuilder.Entity("VetRS.Models.ChatRoom", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ChatRooms");
+                });
+
+            modelBuilder.Entity("VetRS.Models.ChatRoomUser", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ChatRoomId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "ChatRoomId");
+
+                    b.HasIndex("ChatRoomId");
+
+                    b.ToTable("ChatRoomUsers");
+                });
+
             modelBuilder.Entity("VetRS.Models.Education", b =>
                 {
                     b.Property<int>("Id")
@@ -389,6 +416,36 @@ namespace VetRS.Migrations
                         });
                 });
 
+            modelBuilder.Entity("VetRS.Models.Message", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("ChatRoomId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Content")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RecipientId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SenderId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ChatRoomId");
+
+                    b.HasIndex("RecipientId");
+
+                    b.HasIndex("SenderId");
+
+                    b.ToTable("Messages");
+                });
+
             modelBuilder.Entity("VetRS.Models.MilitaryJobTranslator", b =>
                 {
                     b.Property<string>("MilitarySpecialtyNumber")
@@ -435,6 +492,24 @@ namespace VetRS.Migrations
                             CivilianJobTitle = "Clinical Laboratory Technologist",
                             MilitaryJobTitle = "Medical Laboratory Specialist"
                         });
+                });
+
+            modelBuilder.Entity("VetRS.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("VetRS.Models.VSO", b =>
@@ -750,11 +825,47 @@ namespace VetRS.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("VetRS.Models.ChatRoomUser", b =>
+                {
+                    b.HasOne("VetRS.Models.ChatRoom", "ChatRoom")
+                        .WithMany("ChatRoomUsers")
+                        .HasForeignKey("ChatRoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("VetRS.Models.User", "User")
+                        .WithMany("ChatRoomUsers")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+                });
+
             modelBuilder.Entity("VetRS.Models.Education", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
                         .WithMany()
                         .HasForeignKey("IdentityUserId");
+                });
+
+            modelBuilder.Entity("VetRS.Models.Message", b =>
+                {
+                    b.HasOne("VetRS.Models.ChatRoom", "ChatRoom")
+                        .WithMany("Messages")
+                        .HasForeignKey("ChatRoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("VetRS.Models.User", "RecipientUser")
+                        .WithMany("Recipients")
+                        .HasForeignKey("RecipientId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("VetRS.Models.User", "SenderUser")
+                        .WithMany("Senders")
+                        .HasForeignKey("SenderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("VetRS.Models.VSO", b =>

@@ -4,30 +4,63 @@ using System.Linq;
 using System.Web;
 using System.Security.Policy;
 using System.Threading.Tasks;
-//using Microsoft.AspNet.SignalR;
+using Microsoft.AspNet.SignalR.Hubs;
 using Microsoft.AspNetCore.SignalR;
 using VetRS.Common;
+using Microsoft.VisualStudio.Web.CodeGeneration.Utils;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
+using VetRS.Models;
+using VetRS.Data;
+
 
 namespace VetRS.Hubs
 {
     public class ChatHub : Hub
     {
-        public async Task SendMessage(string message, string userId)
+        private ApplicationDbContext db;
+        public ChatHub(ApplicationDbContext db)
         {
-            await Clients.Clients(userId).SendAsync("ReceiveMessage", message, Context.ConnectionId);
-            await Clients.Clients(Context.ConnectionId).SendAsync("OwnMessage", message.Trim());
+            this.db = db;
         }
-        public override Task OnConnectedAsync()
+
+       
+        public async Task Send(string user, string content, string recipientId, string chatRoomId)
         {
-            var connectionId = Context.ConnectionId;
-            Clients.All.SendAsync("OnlineUserList", connectionId);
-            return base.OnConnectedAsync();
+            
+            var currentUser = db.Users.FirstOrDefault(x => x.UserName == user);
+
+            await Groups.AddToGroupAsync(Context.ConnectionId, chatRoomId);
+
+            Message message = new Message
+            {
+                Content = content,
+                RecipientId = int.Parse(recipientId),
+                SenderId = currentUser.Id,
+                ChatRoomId = int.Parse(chatRoomId)
+
+            };
+            db.Messages.Add(message);
+            db.SaveChanges();
+
+            await Clients.Group(chatRoomId).SendAsync("ReceiveMessage", user, content);
         }
-        public async Task OnlineUsers()
-        {
-            var connectionId = Context.ConnectionId;
-            await Clients.All.SendAsync("OnlineUserList", connectionId);
-        }
+        //public async Task SendMessage(string message, string userId)
+        //{
+        //    await Clients.Clients(userId).SendAsync("ReceiveMessage", message, Context.ConnectionId);
+        //    await Clients.Clients(Context.ConnectionId).SendAsync("OwnMessage", message.Trim());
+        //}
+        //public override Task OnConnectedAsync()
+        //{
+        //    var connectionId = Context.ConnectionId;
+        //    Clients.All.SendAsync("OnlineUserList", connectionId);
+        //    return base.OnConnectedAsync();
+        //}
+        //public async Task OnlineUsers()
+        //{
+        //    var connectionId = Context.ConnectionId;
+        //    await Clients.All.SendAsync("OnlineUserList", connectionId);
+    }
         //public async Task SendMessage(string user, string message)
         //{
         //    await Clients.All.SendAsync("ReceiveMessage", user, message);
@@ -120,5 +153,5 @@ namespace VetRS.Hubs
         //            CurrentMessage.RemoveAt(0);
         //    }
         //}
-    }
 }
+
