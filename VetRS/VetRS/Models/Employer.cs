@@ -23,6 +23,12 @@ namespace VetRS.Models
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string ImageLocation { get; set; }
+        [Display(Name = "Company Name", Order = -9)]
+        public string CompanyName { get; set; }
+        [Display(Name = "Company Location", Order = -9)]
+        public string CompanyImageLocation { get; set; }
+        [Display(Name = "Company Bio", Order = -9)]
+        public string CompanyBio { get; set; }
 
         [Display(Name = "Street", Order = -9)]
         public string EmployerStreet { get; set; }
