@@ -57,6 +57,104 @@ namespace VetRS.Data
             }
             );
             {
+                builder.Entity<Education>().HasData(
+                    new Employer
+                    {
+                        Id = 1,
+                        FirstName = "Reggie",
+                        LastName = "White",
+                        PhoneNumber = "4149647837",
+                        Email = "ThisAintNoReggie92@Sprecher.com",
+                        ImageLocation = "",
+                        CompanyName = "Sprecher Brewing Co. Inc.",
+                        CompanyImageLocation = "https://www.sprecherbrewery.com/wp-content/uploads/2020/06/Re_Fresh_500x500.jpg",
+                        CompanyUrl = "sprecherbrewery.com",
+                        CompanyBio = "Manufacturer of craft beers and craft gourmet sodas; retail shop, tap room, local entertainment venue",
+                        EmployerStreet = "701 W. Glendale Ave.",
+                        EmployerCity = "Glendale",
+                        EmployerState = "Wisconsin",
+                        EmployerZipCode = 53209,
+                        Lat = 43.099650,
+                        Long = -87.919820
+                    },
+                    new Employer
+                    {
+                        Id = 2,
+                        FirstName = "LeRoy",
+                        LastName = "Butler",
+                        PhoneNumber = "262-796-1040",
+                        Email = "Roy@EWH.com",
+                        ImageLocation = "",
+                        CompanyName = "EWH Small Business Accounting SC",
+                        CompanyImageLocation = "",
+                        CompanyUrl = "ewhsba.com",
+                        CompanyBio = "Training for small business owners and their team, workshops focus on teaching the skills and tools to a business by the numbers",
+                        EmployerStreet = "20670 Watertown Rd.",
+                        EmployerCity = "Waukesha",
+                        EmployerState = "Wisconsin",
+                        EmployerZipCode = 53186,
+                        Lat = 43.038780,
+                        Long = 88.169670
+                    },
+                    new Employer
+                    {
+                        Id = 3,
+                        FirstName = "Robert",
+                        LastName = "Brooks",
+                        PhoneNumber = "2627850900",
+                        Email = "TDBob@EHCG.com",
+                        ImageLocation = "",
+                        CompanyName = "Elite Human Capital Group",
+                        CompanyImageLocation = "",
+                        CompanyUrl = "elitehumancapital.com",
+                        CompanyBio = "Staffing, recruitment search firm specializing in areas of financial, manufacturing, health care, telecom, IT, engineering, human resources, and sales and marketing",
+                        EmployerStreet = "155 S. Executive Dr.",
+                        EmployerCity = "Brookfield",
+                        EmployerState = "Wisconsin",
+                        EmployerZipCode = 53005,
+                        Lat = 43.030954,
+                        Long = -88.115035
+                    },
+                    new Employer
+                    {
+                        Id = 4,
+                        FirstName = "Don",
+                        LastName = "Beebe",
+                        PhoneNumber = "4149625110",
+                        Email = "4x1xChamp@KMK.com",
+                        ImageLocation = "",
+                        CompanyName = "Kohner, Mann & Kailas SC",
+                        CompanyImageLocation = "https://kmksc.com/wp-content/themes/kmk/images/KMK-Logo-Round.png",
+                        CompanyUrl = "kmksc.com",
+                        CompanyBio = "Law firm specializes in representation of commercial creditors in any respect and legal environment, both secured and unsecured; business clients utilize services to promote, protect interests as creditors in the state and country.",
+                        EmployerStreet = "4650 N. Port Washington Rd",
+                        EmployerCity = "Milwaukee",
+                        EmployerState = "Wisconsin",
+                        EmployerZipCode = 53212,
+                        Lat = 43.100910,
+                        Long = -87.915160
+                    },
+                    new Employer
+                    {
+                        Id = 5,
+                        FirstName = "Mark",
+                        LastName = "Chmura",
+                        PhoneNumber = "2623673661",
+                        Email = "89BigC@GPBalum.com",
+                        ImageLocation = "",
+                        CompanyName = "MSI General Corp.",
+                        CompanyImageLocation = "",
+                        CompanyUrl = "msigeneral.com",
+                        CompanyBio = "Firm designs/constructs industrial, retail, commercial and institution buildings for projects throughout SE Wisconsin; approximately 30 major projects a year; also select project division for renovation and repair projects",
+                        EmployerStreet = "P.O. Box 7",
+                        EmployerCity = "Oconomowoc",
+                        EmployerState = "Wisconsin",
+                        EmployerZipCode = 53066,
+                        Lat = 43.099160,
+                        Long = -88.498070
+                    }
+                    );
+                {
                 builder.Entity<VSO>().HasData(
                     new VSO
                     {
