@@ -1,26 +1,63 @@
 ﻿@section Styles {
     <link rel="stylesheet" href="~/css/user.css" />
 }
+@model IEnumerable<VetRS.Models.EduVSOViewModel>
 
-@{
-    ViewData["Title"] = "Home Page";
+    @{
+        ViewData["Title"] = "Home Page";
 
-}
+    }
 
-<p class="text-center customFont">My Google Maps Demo</p>
+
 <br />
+
+<br />
+<div class="row">
+    <div class="col-2 leftlogodiv">
+        <figure class="imageDivLeft">
+            <img class="img-fluid leftlogo" src="/assets/vetrs.png" alt="Soldier on knees with big backpack and carrying rifle.">
+        </figure>
+    </div>
+    <div class="col-8">
+        <p class="text-center customFont">My Google Maps Demo</p>
+    </div>
+    <div class="col-2">
+        <figure class="imageDivRight">
+            <img class="img-fluid" src="/assets/SoldierSalutingFlag-300x175.jpg" alt="Soldier saluting flag with big flag background.">
+        </figure>
+    </div>
+</div>
 <form class="form-inline my-2 my-lg-0 justify-content-center">
     <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 </form>
-<br />
-<figure>
-    <img class="logo" src="/assets/vetrs.png" alt="Soldier on knees with big backpack and carrying rifle.">
-</figure>
-<figure>
-    <img class="logo2" src="/assets/SoldierSalutingFlag-300x175.jpg" alt="Soldier saluting flag with big flag background.">
-</figure>
 
 
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: 43.0389, lng: -87.9065};
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 13, center: uluru });
+            // The marker, positioned at Uluru
 
+            var latLng = { lat: 43.066527, lng: -87.914071 };
+            var marker = new google.maps.Marker({ position: latLng, map: map });
+            marker.setMap(map);
+            latLng = { lat: 43.061505, lng: -87.91849 };
+            var marker2 = new google.maps.Marker({ position: latLng, map: map });
+            marker2.setMap(map);
+            latLng = { lat: 43.0343, lng: -87.9116 };
+            var marker3 = new google.maps.Marker({ position: latLng, map: map });
+            marker3.setMap(map);
+            latLng = { lat: 43.0783, lng: -87.8820 };
+            var marker4 = new google.maps.Marker({ position: latLng, map: map });
+            marker4.setMap(map);
+
+    }
+    </script>
 
