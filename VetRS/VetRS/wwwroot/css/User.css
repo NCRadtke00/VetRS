@@ -1,23 +1,27 @@
 ﻿body {
 }
-.logo2 {
-    position: absolute;
-    top: 60px;
-    right: 20px;
-    height: 100px;
-    background-size: 100px;
-    margin-top: 10px;
-    border-radius: 15px;
+.col-2 {
+    max-width: 100%;
+    height: auto;
+}
+.img-fluid {
+    max-width: 100%;
+    height: auto;
 }
 
-.logo {
-    position: absolute;
-    top: 60px;
-    left: 80px;
-    height: 100px;
-    background-size: 100px;
-    margin-top: 10px;
+.leftlogodiv {
+    height: 80px;
+    margin-bottom: 20px;
 }
+.imageDivLeft {
+    margin-bottom: 10px;
+    
+}
+.imageDivRight {
+    height: 100px;
+    
+}*/
+
 .center {
     text-align: center;
 }
