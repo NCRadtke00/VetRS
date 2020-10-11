@@ -74,6 +74,7 @@ namespace VetRS.Data
                         CompanyCity = "Glendale",
                         CompanyState = "Wisconsin",
                         CompanyZipCode = 53209,
+                        Rating = 5,
                         Lat = 43.099650,
                         Long = -87.919820
                     },
@@ -93,6 +94,7 @@ namespace VetRS.Data
                         CompanyCity = "Waukesha",
                         CompanyState = "Wisconsin",
                         CompanyZipCode = 53186,
+                        Rating = 4,
                         Lat = 43.038780,
                         Long = 88.169670
                     },
@@ -112,6 +114,7 @@ namespace VetRS.Data
                         CompanyCity = "Brookfield",
                         CompanyState = "Wisconsin",
                         CompanyZipCode = 53005,
+                        Rating = 4,
                         Lat = 43.030954,
                         Long = -88.115035
                     },
@@ -131,6 +134,7 @@ namespace VetRS.Data
                         CompanyCity = "Milwaukee",
                         CompanyState = "Wisconsin",
                         CompanyZipCode = 53212,
+                        Rating = 5,
                         Lat = 43.100910,
                         Long = -87.915160
                     },
@@ -150,6 +154,7 @@ namespace VetRS.Data
                         CompanyCity = "Oconomowoc",
                         CompanyState = "Wisconsin",
                         CompanyZipCode = 53066,
+                        Rating = 5,
                         Lat = 43.099160,
                         Long = -88.498070
                     }

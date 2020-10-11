@@ -48,24 +48,31 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bb3592a0-555b-4359-9ef6-4591ec5c2599",
-                            ConcurrencyStamp = "4eb95ca6-9962-4138-8726-0eace447aab3",
+                            Id = "0c9af3b5-a48e-495c-b4d7-8ad680cd5b97",
+                            ConcurrencyStamp = "e4e90ede-0e04-4a6e-b8dc-830503ee1bd6",
                             Name = "Veteran",
                             NormalizedName = "VETERAN"
                         },
                         new
                         {
-                            Id = "5a691ea3-bfe7-403a-976e-bc337f1e36b3",
-                            ConcurrencyStamp = "159ce18e-c427-4210-8e7d-aecdf1e7e760",
+                            Id = "2e308c38-4a45-4699-a89a-6dc7873649ed",
+                            ConcurrencyStamp = "932338a5-0ba6-44d3-8a9e-d4f2e59b9411",
                             Name = "VSO",
                             NormalizedName = "VSO"
                         },
                         new
                         {
-                            Id = "c2ce1f3a-250b-459d-bea9-cc9a6d5be773",
-                            ConcurrencyStamp = "c482be03-2a2c-415b-8829-a2ec63da6f49",
+                            Id = "6818948e-a445-456b-98e5-5876641ae2e8",
+                            ConcurrencyStamp = "8b4806c4-12e4-42dc-8098-1bff4b382d75",
                             Name = "Education Rep.",
                             NormalizedName = "EDUCATION REP"
+                        },
+                        new
+                        {
+                            Id = "9d03e444-3789-45c5-ad16-f8f64cd6cd2b",
+                            ConcurrencyStamp = "c588d803-16bb-4e4c-8edd-b6e263e88d63",
+                            Name = "Employer",
+                            NormalizedName = "Employer"
                         });
                 });
 
@@ -386,6 +393,173 @@ namespace VetRS.Migrations
                             ProgramBio = "Wisconsin's Premier Educational State Institution",
                             ProgramImageLocation = "",
                             ProgramName = "University of Wisconsin - Milwaukee"
+                        });
+                });
+
+            modelBuilder.Entity("VetRS.Models.Employer", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("CompanyBio")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyCity")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyImageLocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyState")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyStreet")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("CompanyUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CompanyZipCode")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("IdentityUserId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("ImageLocation")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Lat")
+                        .HasColumnType("float");
+
+                    b.Property<double>("Long")
+                        .HasColumnType("float");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdentityUserId");
+
+                    b.ToTable("Employer");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyBio = "Manufacturer of craft beers and craft gourmet sodas; retail shop, tap room, local entertainment venue",
+                            CompanyCity = "Glendale",
+                            CompanyImageLocation = "https://www.sprecherbrewery.com/wp-content/uploads/2020/06/Re_Fresh_500x500.jpg",
+                            CompanyName = "Sprecher Brewing Co. Inc.",
+                            CompanyState = "Wisconsin",
+                            CompanyStreet = "701 W. Glendale Ave.",
+                            CompanyUrl = "sprecherbrewery.com",
+                            CompanyZipCode = 53209,
+                            Email = "ThisAintNoReggie92@Sprecher.com",
+                            FirstName = "Reggie",
+                            ImageLocation = "",
+                            LastName = "White",
+                            Lat = 43.099649999999997,
+                            Long = -87.919820000000001,
+                            PhoneNumber = "4149647837",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CompanyBio = "Training for small business owners and their team, workshops focus on teaching the skills and tools to a business by the numbers",
+                            CompanyCity = "Waukesha",
+                            CompanyImageLocation = "",
+                            CompanyName = "EWH Small Business Accounting SC",
+                            CompanyState = "Wisconsin",
+                            CompanyStreet = "20670 Watertown Rd.",
+                            CompanyUrl = "ewhsba.com",
+                            CompanyZipCode = 53186,
+                            Email = "Roy@EWH.com",
+                            FirstName = "LeRoy",
+                            ImageLocation = "",
+                            LastName = "Butler",
+                            Lat = 43.038780000000003,
+                            Long = 88.169669999999996,
+                            PhoneNumber = "262-796-1040",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CompanyBio = "Staffing, recruitment search firm specializing in areas of financial, manufacturing, health care, telecom, IT, engineering, human resources, and sales and marketing",
+                            CompanyCity = "Brookfield",
+                            CompanyImageLocation = "",
+                            CompanyName = "Elite Human Capital Group",
+                            CompanyState = "Wisconsin",
+                            CompanyStreet = "155 S. Executive Dr.",
+                            CompanyUrl = "elitehumancapital.com",
+                            CompanyZipCode = 53005,
+                            Email = "TDBob@EHCG.com",
+                            FirstName = "Robert",
+                            ImageLocation = "",
+                            LastName = "Brooks",
+                            Lat = 43.030954000000001,
+                            Long = -88.115035000000006,
+                            PhoneNumber = "2627850900",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CompanyBio = "Law firm specializes in representation of commercial creditors in any respect and legal environment, both secured and unsecured; business clients utilize services to promote, protect interests as creditors in the state and country.",
+                            CompanyCity = "Milwaukee",
+                            CompanyImageLocation = "https://kmksc.com/wp-content/themes/kmk/images/KMK-Logo-Round.png",
+                            CompanyName = "Kohner, Mann & Kailas SC",
+                            CompanyState = "Wisconsin",
+                            CompanyStreet = "4650 N. Port Washington Rd",
+                            CompanyUrl = "kmksc.com",
+                            CompanyZipCode = 53212,
+                            Email = "4x1xChamp@KMK.com",
+                            FirstName = "Don",
+                            ImageLocation = "",
+                            LastName = "Beebe",
+                            Lat = 43.100909999999999,
+                            Long = -87.91516,
+                            PhoneNumber = "4149625110",
+                            Rating = 0
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CompanyBio = "Firm designs/constructs industrial, retail, commercial and institution buildings for projects throughout SE Wisconsin; approximately 30 major projects a year; also select project division for renovation and repair projects",
+                            CompanyCity = "Oconomowoc",
+                            CompanyImageLocation = "",
+                            CompanyName = "MSI General Corp.",
+                            CompanyState = "Wisconsin",
+                            CompanyStreet = "P.O. Box 7",
+                            CompanyUrl = "msigeneral.com",
+                            CompanyZipCode = 53066,
+                            Email = "89BigC@GPBalum.com",
+                            FirstName = "Mark",
+                            ImageLocation = "",
+                            LastName = "Chmura",
+                            Lat = 43.099159999999998,
+                            Long = -88.498069999999998,
+                            PhoneNumber = "2623673661",
+                            Rating = 0
                         });
                 });
 
@@ -751,6 +925,13 @@ namespace VetRS.Migrations
                 });
 
             modelBuilder.Entity("VetRS.Models.Education", b =>
+                {
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
+                        .WithMany()
+                        .HasForeignKey("IdentityUserId");
+                });
+
+            modelBuilder.Entity("VetRS.Models.Employer", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "IdentityUser")
                         .WithMany()
