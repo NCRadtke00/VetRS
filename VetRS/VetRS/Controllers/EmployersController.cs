@@ -2,15 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Newtonsoft.Json.Linq;
 using VetRS.Data;
 using VetRS.Models;
-
 namespace VetRS.Controllers
 {
     public class EmployersController : Controller
@@ -25,7 +26,14 @@ namespace VetRS.Controllers
         // GET: Employers
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Employer.Include(e => e.IdentityUser);
+            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var cust = _context.Employer.Where(c => c.IdentityUserId == userId).FirstOrDefault();
+            if (cust == null)
+            {
+                return RedirectToAction("Create");
+            }
+
+            var applicationDbContext = _context.Employer.Include(v => v.IdentityUser);
             return View(await applicationDbContext.ToListAsync());
         }
 

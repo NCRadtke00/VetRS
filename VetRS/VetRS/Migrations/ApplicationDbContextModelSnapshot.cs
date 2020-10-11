@@ -48,29 +48,29 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "0c9af3b5-a48e-495c-b4d7-8ad680cd5b97",
-                            ConcurrencyStamp = "e4e90ede-0e04-4a6e-b8dc-830503ee1bd6",
+                            Id = "bcb0eb48-050f-4c04-9a18-f7ad58efef54",
+                            ConcurrencyStamp = "3b50e696-5fda-47d3-a957-d5e2182a2d31",
                             Name = "Veteran",
                             NormalizedName = "VETERAN"
                         },
                         new
                         {
-                            Id = "2e308c38-4a45-4699-a89a-6dc7873649ed",
-                            ConcurrencyStamp = "932338a5-0ba6-44d3-8a9e-d4f2e59b9411",
+                            Id = "705e1d9d-2bb3-435c-b049-79a0f70c183b",
+                            ConcurrencyStamp = "ad5e04fc-6280-421d-a177-3d5bc70223d4",
                             Name = "VSO",
                             NormalizedName = "VSO"
                         },
                         new
                         {
-                            Id = "6818948e-a445-456b-98e5-5876641ae2e8",
-                            ConcurrencyStamp = "8b4806c4-12e4-42dc-8098-1bff4b382d75",
+                            Id = "d9ca98fd-4fd0-493a-a42e-d1faf4826853",
+                            ConcurrencyStamp = "b7b26f41-7fd0-48a0-a220-2cd39afe6dd0",
                             Name = "Education Rep.",
                             NormalizedName = "EDUCATION REP"
                         },
                         new
                         {
-                            Id = "9d03e444-3789-45c5-ad16-f8f64cd6cd2b",
-                            ConcurrencyStamp = "c588d803-16bb-4e4c-8edd-b6e263e88d63",
+                            Id = "e364dc86-838d-4390-9411-dbdccaeb57b4",
+                            ConcurrencyStamp = "5f38865e-009e-4a9b-a307-bf8caf48a088",
                             Name = "Employer",
                             NormalizedName = "Employer"
                         });
@@ -479,7 +479,7 @@ namespace VetRS.Migrations
                             Lat = 43.099649999999997,
                             Long = -87.919820000000001,
                             PhoneNumber = "4149647837",
-                            Rating = 0
+                            Rating = 5
                         },
                         new
                         {
@@ -499,7 +499,7 @@ namespace VetRS.Migrations
                             Lat = 43.038780000000003,
                             Long = 88.169669999999996,
                             PhoneNumber = "262-796-1040",
-                            Rating = 0
+                            Rating = 4
                         },
                         new
                         {
@@ -519,7 +519,7 @@ namespace VetRS.Migrations
                             Lat = 43.030954000000001,
                             Long = -88.115035000000006,
                             PhoneNumber = "2627850900",
-                            Rating = 0
+                            Rating = 4
                         },
                         new
                         {
@@ -539,7 +539,7 @@ namespace VetRS.Migrations
                             Lat = 43.100909999999999,
                             Long = -87.91516,
                             PhoneNumber = "4149625110",
-                            Rating = 0
+                            Rating = 5
                         },
                         new
                         {
@@ -559,7 +559,7 @@ namespace VetRS.Migrations
                             Lat = 43.099159999999998,
                             Long = -88.498069999999998,
                             PhoneNumber = "2623673661",
-                            Rating = 0
+                            Rating = 5
                         });
                 });
 
