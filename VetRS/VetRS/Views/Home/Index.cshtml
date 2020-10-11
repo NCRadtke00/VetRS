@@ -1,11 +1,12 @@
 ﻿@section Styles {
     <link rel="stylesheet" href="~/css/user.css" />
 }
+@model IEnumerable<VetRS.Models.EduVSOViewModel>
 
-@{
-    ViewData["Title"] = "Home Page";
+    @{
+        ViewData["Title"] = "Home Page";
 
-}
+    }
 
 
 <br />
@@ -32,6 +33,31 @@
 </form>
 
 
+    <!--The div element for the map -->
+    <div id="map"></div>
+    <script>
+        // Initialize and add the map
+        function initMap() {
+            // The location of Uluru
+            var uluru = { lat: 43.0389, lng: -87.9065};
+            // The map, centered at Uluru
+            var map = new google.maps.Map(
+                document.getElementById('map'), { zoom: 13, center: uluru });
+            // The marker, positioned at Uluru
 
+            var latLng = { lat: 43.066527, lng: -87.914071 };
+            var marker = new google.maps.Marker({ position: latLng, map: map });
+            marker.setMap(map);
+            latLng = { lat: 43.061505, lng: -87.91849 };
+            var marker2 = new google.maps.Marker({ position: latLng, map: map });
+            marker2.setMap(map);
+            latLng = { lat: 43.0343, lng: -87.9116 };
+            var marker3 = new google.maps.Marker({ position: latLng, map: map });
+            marker3.setMap(map);
+            latLng = { lat: 43.0783, lng: -87.8820 };
+            var marker4 = new google.maps.Marker({ position: latLng, map: map });
+            marker4.setMap(map);
 
+    }
+    </script>
 
