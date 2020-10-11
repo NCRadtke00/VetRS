@@ -74,7 +74,7 @@ body {
     white-space: nowrap;
     line-height: 100px; /* Vertically center the text there */
 }
-.chat {
+/*.chat {
     margin-top: auto;
     margin-bottom: auto;
 }
@@ -335,7 +335,7 @@ body {
 
 ul {
     list-style-type: none;
-}
+}*/
 /*.submitButton {
     background-color: #d7e5e4;
     border: #5f9482 solid 1px;
@@ -346,7 +346,7 @@ ul {
     .submitButton:hover {
         background-color: #e1e1e1;
     }
-
+*/
 .login {
     width: 250px;
     margin-left: auto;
@@ -487,4 +487,3 @@ ul {
             margin-left: 4px;
             width: 55px;
         }
-*/

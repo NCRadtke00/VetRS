@@ -19,6 +19,7 @@ namespace VetRS.Data
         public DbSet<Education> Education { get; set; }
         public DbSet<Veteran> Veteran { get; set; }
         public DbSet<MilitaryJobTranslator> MilitaryJobsTranslator { get; set; }
+        public DbSet<Employer> Employer { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
