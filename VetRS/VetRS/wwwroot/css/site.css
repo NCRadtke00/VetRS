@@ -2,13 +2,183 @@
 for details on configuring this project to bundle and minify static web assets. */
 
 a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+    white-space: normal;
+    text-align: center;
+    word-break: break-all;
 }
 
 /* Provide sufficient contrast against white background */
 a {
+    color: #0366d6;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+    color: #fff;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.border-top {
+    border-top: 1px solid #e5e5e5;
+}
+
+.border-bottom {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+    font-size: 1rem;
+    line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 60px; /* Vertically center the text there */
+}
+
+.chatApp {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    max-width: 43em;
+    max-height: 40em;
+    overflow: hidden;
+    height: calc(100vh - 60px - 73px);
+}
+
+.chatApp-userList {
+    padding: 1em;
+    flex-grow: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+    .chatApp-userList button {
+        padding: 0.5em;
+        border: 0 none;
+        background: transparent;
+    }
+
+    .chatApp-userList .isActive {
+        background: silver;
+    }
+
+    .chatApp-userList .hasUnreadMessages {
+        font-weight: bold;
+    }
+
+        .chatApp-userList .hasUnreadMessages::after {
+            content: '*';
+        }
+
+.chatApp-chats {
+    flex-grow: 1;
+    position: relative;
+}
+
+.chatApp-chat {
+    visibility: hidden;
+    padding: 1em;
+    flex-direction: column;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+}
+
+    .chatApp-chat.isActive {
+        visibility: visible;
+    }
+
+.chat-messages {
+    list-style: none;
+    overflow: scroll;
+    margin: 0;
+    padding: 0 1em 0 0;
+    flex-grow: 1;
+}
+
+.chat-message {
+    max-width: 75%;
+    float: left;
+    clear: both;
+    margin: 0.5em 0;
+}
+
+    .chat-message.isMine {
+        float: right;
+    }
+
+.chat-composer {
+    width: 100%;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding-right: 1em;
+    display: flex;
+    flex-direction: row;
+}
+
+    .chat-composer input {
+        padding: 0;
+    }
+
+        .chat-composer input[type=text] {
+            flex-grow: 1;
+        }
+
+        .chat-composer input[type=submit] {
+            flex-grow: 0;
+        }
+/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+/*a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}*/
+
+/* Provide sufficient contrast against white background */
+/*a {
   color: #0366d6;
 }
 
@@ -22,11 +192,11 @@ a {
   color: #fff;
   background-color: #1b6ec2;
   border-color: #1861ac;
-}
+}*/
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
+/*html {
   font-size: 14px;
 }
 @media (min-width: 768px) {
@@ -49,18 +219,18 @@ html {
 button.accept-policy {
   font-size: 1rem;
   line-height: inherit;
-}
+}*/
 
 /* Sticky footer styles
 -------------------------------------------------- */
-html {
+/*html {
   position: relative;
   min-height: 100%;
 }
 
-body {
+body {*/
   /* Margin bottom by footer height */
-  margin-bottom: 60px;
+  /*margin-bottom: 60px;
 }
 .test-link {
     color: gold;
@@ -72,8 +242,8 @@ body {
     bottom: 0;
     width: 100%;
     white-space: nowrap;
-    line-height: 100px; /* Vertically center the text there */
-}
+    line-height: 100px;*/ /* Vertically center the text there */
+/*}
 .chat {
     margin-top: auto;
     margin-bottom: auto;
@@ -335,7 +505,7 @@ body {
 
 ul {
     list-style-type: none;
-}
+}*/
 /*.submitButton {
     background-color: #d7e5e4;
     border: #5f9482 solid 1px;

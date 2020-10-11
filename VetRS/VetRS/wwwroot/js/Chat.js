@@ -1,29 +1,60 @@
-﻿"use strict";
+﻿import React, { Component } from "react";
 
-var connection = new signalR.HubConnectionBuilder().withUrl("/chatHub").build();
+class Chat extends Component {
+    constructor(props) {
+        super(props);
 
-//Disable send button until connection is established
-document.getElementById("sendButton").disabled = true;
+        this.messageRef = React.createRef();
+        this.state = {
+            message: '',
+        };
 
-connection.on("ReceiveMessage", function (user, message) {
-    var msg = message.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
-    var encodedMsg = user + " says " + msg;
-    var li = document.createElement("li");
-    li.textContent = encodedMsg;
-    document.getElementById("messagesList").appendChild(li);
-});
+        this.handleMessageChange = this.handleMessageChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-connection.start().then(function () {
-    document.getElementById("sendButton").disabled = false;
-}).catch(function (err) {
-    return console.error(err.toString());
-});
+    onComponentMount() {
+        this.scrollToBottom();
+    }
 
-document.getElementById("sendButton").addEventListener("click", function (event) {
-    var user = document.getElementById("userInput").value;
-    var message = document.getElementById("messageInput").value;
-    connection.invoke("SendMessage", user, message).catch(function (err) {
-        return console.error(err.toString());
-    });
-    event.preventDefault();
-});
+    scrollToBottom() {
+        this.messageRef.scrollTop = this.messageRef.scrollHeight - this.messageRef.clientHeight;
+    }
+
+    handleSubmit(e) {
+        if (!!this.props.sendMessage) {
+            this.props.sendMessage(this.props.user, this.state.message);
+
+            this.setState({
+                message: '',
+            });
+        }
+
+        e.preventDefault();
+    }
+
+    handleMessageChange(e) {
+        this.setState({
+            message: e.target.value,
+        });
+    }
+
+    render() {
+        let classes = "chatApp-chat" + (this.props.isActive ? " isActive" : "");
+        return (
+            <div className={classes}>
+                <ol className="chat-messages" ref={this.messageRef}>
+                    {this.props.messages.sort((a, b) => a.timestamp > b.timestamp).map(m => {
+                        return (<li key={m.timestamp} className={"chat-message" + (m.mine ? " isMine" : "")}>{m.message}</li>);
+                    })}
+                </ol>
+                <form className="chat-composer" onSubmit={this.handleSubmit}>
+                    <input type="text" value={this.state.message} onChange={this.handleMessageChange} />
+                    <input type="submit" value="Send" />
+                </form>
+            </div>
+        );
+    }
+}
+
+export default Chat;
