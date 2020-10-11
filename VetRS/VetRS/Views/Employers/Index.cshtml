@@ -1,31 +1,40 @@
 ﻿@model IEnumerable<VetRS.Models.Employer>
-
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="~/css/user.css" />
+}
 @{
     ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div class="row">
+    <div class="col-2 leftlogodiv">
+        <figure class="imageDivLeft">
+            <img class="img-fluid leftlogo" src="/assets/vetrs.png" alt="Soldier on knees with big backpack and carrying rifle.">
+        </figure>
+    </div>
+    <div class="col-8">
+        <h1 class="text-center customFont">Veteran friendly Comapnys</h1>
+    </div>
+    <div class="col-2">
+        <figure class="imageDivRight">
+            <img class="img-fluid" src="/assets/SoldierSalutingFlag-300x175.jpg" alt="Soldier saluting flag with big flag background.">
+        </figure>
+    </div>
+</div>
+<br />
+<br />
 <table class="table">
     <thead>
         <tr>
+            <th>
+                <p1>Profile</p1>
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.FirstName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.LastName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.PhoneNumber)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ImageLocation)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CompanyName)
@@ -37,12 +46,6 @@
                 @Html.DisplayNameFor(model => model.CompanyUrl)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CompanyBio)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CompanyStreet)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.CompanyCity)
             </th>
             <th>
@@ -52,37 +55,32 @@
                 @Html.DisplayNameFor(model => model.CompanyZipCode)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Lat)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Long)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.Rating)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.IdentityUser)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+        <form asp-controller="Employers" asp-action="Index">
+            <p>
+                Companyies: <input type="text" name="SearchString">
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+
+    </tbody>
+    <tbody>
+        @foreach (var item in Model)
+        {
         <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Profile</a>
+            </td>
             <td>
                 @Html.DisplayFor(modelItem => item.FirstName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.LastName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PhoneNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ImageLocation)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompanyName)
@@ -94,38 +92,15 @@
                 @Html.DisplayFor(modelItem => item.CompanyUrl)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CompanyBio)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CompanyStreet)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.CompanyCity)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CompanyState)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CompanyZipCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Lat)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Long)
-            </td>
-            <td>
                 @Html.DisplayFor(modelItem => item.Rating)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.IdentityUser.Id)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
         </tr>
-}
+        }
     </tbody>
 </table>
