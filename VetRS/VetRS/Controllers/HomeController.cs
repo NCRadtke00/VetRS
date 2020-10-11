@@ -37,8 +37,8 @@ namespace VetRS.Controllers
             {
                 vso.Add(person);
             }
-            eduVSOViewModel.educations = edu;
-            eduVSOViewModel.vSOs = vso;
+            eduVSOViewModel.Educations = edu;
+            eduVSOViewModel.VSOs = vso;
             return View();
         }
 

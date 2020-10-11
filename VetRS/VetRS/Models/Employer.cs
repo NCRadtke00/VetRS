@@ -21,6 +21,7 @@ namespace VetRS.Models
 
         [Display(Name = "Contact #", Order = -9)]
         public string PhoneNumber { get; set; }
+        [Display(Name = "Email", Order = -9)]
         public string Email { get; set; }
         public string ImageLocation { get; set; }
         [Display(Name = "Company Name", Order = -9)]
@@ -32,17 +33,17 @@ namespace VetRS.Models
         [Display(Name = "Company Bio", Order = -9)]
         public string CompanyBio { get; set; }
 
-        [Display(Name = "Street", Order = -9)]
-        public string EmployerStreet { get; set; }
+        [Display(Name = "Company Street", Order = -9)]
+        public string CompanyStreet { get; set; }
 
-        [Display(Name = "City", Order = -9)]
-        public string EmployerCity { get; set; }
+        [Display(Name = "Company City", Order = -9)]
+        public string CompanyCity { get; set; }
 
-        [Display(Name = "State", Order = -9)]
-        public string EmployerState { get; set; }
+        [Display(Name = "Company State", Order = -9)]
+        public string CompanyState { get; set; }
 
-        [Display(Name = "Zip Code", Order = -9)]
-        public int EmployerZipCode { get; set; }
+        [Display(Name = "Company Zip Code", Order = -9)]
+        public int CompanyZipCode { get; set; }
         public double Lat { get; set; }
         public double Long { get; set; }
         public int Rating { get; set; }

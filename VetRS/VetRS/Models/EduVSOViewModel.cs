@@ -7,7 +7,7 @@ namespace VetRS.Models
 {
     public class EduVSOViewModel
     {
-        public List<VSO> vSOs { get; set; }
-        public List<Education> educations { get; set; }
+        public List<VSO> VSOs { get; set; }
+        public List<Education> Educations { get; set; }
     }
 }

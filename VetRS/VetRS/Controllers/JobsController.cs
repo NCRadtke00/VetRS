@@ -43,7 +43,7 @@ namespace VetRS.Controllers
         }
 
         // GET: JobsController/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit()
         {
             return View();
         }
@@ -64,7 +64,7 @@ namespace VetRS.Controllers
         }
 
         // GET: JobsController/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete()
         {
             return View();
         }
