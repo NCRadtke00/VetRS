@@ -11,9 +11,11 @@ using VetRS.Models;
 
 namespace VetRS.Controllers
 {
+
    // [Authorize(Roles = "VSO")]
    // [Authorize(Roles = "Veteran")]
    // [Authorize(Roles = "Education Rep.")]
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
