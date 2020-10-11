@@ -32,12 +32,12 @@ namespace VetRS.Controllers
         // GET: Veterans
         public async Task<IActionResult> Index(int? id)
         {
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var cust = _context.Veteran.Where(c => c.IdentityUserId == userId).FirstOrDefault();
-            if (cust == null)
-            {
-                return RedirectToAction("Create");
-            }
+            //var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //var cust = _context.Veteran.Where(c => c.IdentityUserId == userId).FirstOrDefault();
+            //if (cust == null)
+            //{
+            //    return RedirectToAction("Create");
+            //}
 
             var applicationDbContext = _context.Veteran.Include(v => v.IdentityUser);
             return View(await applicationDbContext.ToListAsync());

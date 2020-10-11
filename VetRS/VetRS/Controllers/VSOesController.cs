@@ -30,12 +30,12 @@ namespace VetRS.Controllers
         // GET: VSOes
         public async Task<IActionResult> Index()
         {
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var cust = _context.VSO.Where(c => c.IdentityUserId == userId).FirstOrDefault();
-            if (cust == null)
-            {
-                return RedirectToAction("Create");
-            }
+            //var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+            //var cust = _context.VSO.Where(c => c.IdentityUserId == userId).FirstOrDefault();
+            //if (cust == null)
+            //{
+            //    return RedirectToAction("Create");
+            //}
 
             var applicationDbContext = _context.VSO.Include(v => v.IdentityUser);
             return View(await applicationDbContext.ToListAsync());
