@@ -48,6 +48,14 @@ namespace VetRS.Data
                 NormalizedName = "EDUCATION REP"
             }
             );
+            builder.Entity<IdentityRole>()
+            .HasData(
+            new IdentityRole
+            {
+                 Name = "Employer",
+                 NormalizedName = "Employer"
+            }
+            );
             {
                 builder.Entity<VSO>().HasData(
                     new VSO
@@ -64,7 +72,7 @@ namespace VetRS.Data
                         VSOZipCode = 53212,
                         Rating = 5,
                         Lat = 43.066527,
-                        Long =  -87.914071
+                        Long = -87.914071
                     },
                     new VSO
                     {
@@ -97,7 +105,7 @@ namespace VetRS.Data
                         Rating = 3,
                         Lat = 43.076442,
                         Long = -87.952109
-                        
+
                     },
                     new VSO
                     {
@@ -328,26 +336,26 @@ namespace VetRS.Data
                         new MilitaryJobTranslator
                         {
                             MilitarySpecialtyNumber = "4N0",
-                            MilitaryJobTitle = "Aerospace Medical Services", 
-                            CivilianJobTitle = "Emergency Medical Technician"                            
+                            MilitaryJobTitle = "Aerospace Medical Services",
+                            CivilianJobTitle = "Emergency Medical Technician"
                         },
                         new MilitaryJobTranslator
                         {
                             MilitarySpecialtyNumber = "4T0",
                             MilitaryJobTitle = "Medical Laboratory Specialist",
-                            CivilianJobTitle = "Clinical Laboratory Technologist"                            
+                            CivilianJobTitle = "Clinical Laboratory Technologist"
                         }
-                        
+
                         );
                 }
-                }
-
-
             }
+
+
         }
     }
+}
 
-    
-    
+
+
 
 

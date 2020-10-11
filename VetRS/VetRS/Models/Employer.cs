@@ -27,6 +27,8 @@ namespace VetRS.Models
         public string CompanyName { get; set; }
         [Display(Name = "Company Location", Order = -9)]
         public string CompanyImageLocation { get; set; }
+        [Display(Name = "Company Url", Order = -9)]
+        public string CompanyUrl { get; set; }
         [Display(Name = "Company Bio", Order = -9)]
         public string CompanyBio { get; set; }
 
