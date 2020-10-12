@@ -48,29 +48,29 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "87001671-e8a0-414c-b1ae-48c03607a893",
-                            ConcurrencyStamp = "e578b99d-57e1-4f99-bea7-421b8f8c21f9",
+                            Id = "ef350652-f286-4951-9dce-ceb5f52013e9",
+                            ConcurrencyStamp = "59b31f6a-5c19-4787-b83b-a7113542f0fd",
                             Name = "Veteran",
                             NormalizedName = "VETERAN"
                         },
                         new
                         {
-                            Id = "71c46ce9-cffa-4c4c-a16e-36582e445b8e",
-                            ConcurrencyStamp = "e8c2a210-cfcb-4fe6-aec2-46de1c4d23b4",
+                            Id = "ddfb60f1-ec21-4b84-ab99-61a96542d88f",
+                            ConcurrencyStamp = "74879637-2c8c-4e71-a81c-23e7399ccb37",
                             Name = "VSO",
                             NormalizedName = "VSO"
                         },
                         new
                         {
-                            Id = "78d309cf-d4e1-48c0-8887-b5d236d5199b",
-                            ConcurrencyStamp = "0547d278-79e5-40d2-bc67-f140e46d681a",
+                            Id = "6d0b701d-81ae-40f2-ad1c-22b7263c8086",
+                            ConcurrencyStamp = "61fa0afd-c9e5-4633-bfe7-1abd1e6fd30e",
                             Name = "Education Rep.",
                             NormalizedName = "EDUCATION REP"
                         },
                         new
                         {
-                            Id = "0bdbbcca-16de-4b40-bf7e-b6e0e1e0f46b",
-                            ConcurrencyStamp = "62d7c161-b75b-43fb-abc5-b897c4bb47ce",
+                            Id = "f64ba677-bb2f-4505-aae7-0f399ed2bd74",
+                            ConcurrencyStamp = "58883a9c-fe61-40a3-8580-98ce81f1ce5d",
                             Name = "Employer",
                             NormalizedName = "EMPLOYER"
                         });
@@ -563,6 +563,42 @@ namespace VetRS.Migrations
                         });
                 });
 
+            modelBuilder.Entity("VetRS.Models.Group", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("GroupName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Group");
+                });
+
+            modelBuilder.Entity("VetRS.Models.Message", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("GroupId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SentBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("message")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("Message");
+                });
+
             modelBuilder.Entity("VetRS.Models.MilitaryJobTranslator", b =>
                 {
                     b.Property<string>("MilitarySpecialtyNumber")
@@ -609,6 +645,24 @@ namespace VetRS.Migrations
                             CivilianJobTitle = "Clinical Laboratory Technologist",
                             MilitaryJobTitle = "Medical Laboratory Specialist"
                         });
+                });
+
+            modelBuilder.Entity("VetRS.Models.UserGroup", b =>
+                {
+                    b.Property<int>("ID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int>("GroupId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("ID");
+
+                    b.ToTable("UserGroup");
                 });
 
             modelBuilder.Entity("VetRS.Models.VSO", b =>
