@@ -48,3 +48,7 @@ nav.custom-nav {
 navbar-brand {
     color: red;
 }
+.stretchVetRS {
+    font-stretch: expanded;
+}
+
