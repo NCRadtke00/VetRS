@@ -33,7 +33,7 @@ namespace VetRS.Controllers
         public async Task<IActionResult> CreateAsync([FromBody] MessageViewModel message)
         {
             //messages breaking here
-            Message newMessage = new Message { SentBy = _userManager.GetUserName(User), message = message.message, GroupId = message.GroupId };
+            Message newMessage = new Message { SentBy = _userManager.GetUserName(User), Messages = message.message, GroupId = message.GroupId };
             
             _context.Message.Add(newMessage);
             _context.SaveChanges();
