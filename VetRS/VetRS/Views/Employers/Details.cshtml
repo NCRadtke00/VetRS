@@ -45,12 +45,7 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CompanyName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.CompanyImageLocation)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CompanyImageLocation)
-        </dd>
+   
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.CompanyUrl)
         </dt>
@@ -87,31 +82,20 @@
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.CompanyZipCode)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Lat)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Lat)
-        </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Long)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Long)
-        </dd>
+    
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Rating)
         </dt>
         <dd class = "col-sm-10">
             @Html.DisplayFor(model => model.Rating)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.IdentityUser)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.IdentityUser.Id)
-        </dd>
+        
     </dl>
+</div>
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item"
+            src="https://www.google.com/maps/embed/v1/place?zoom=16&q=@Model.Lat,@Model.Long&key=@VetRS.APIKeys.GoogleMapsKey"></iframe>
+
 </div>
 <div>
     <a asp-action="Edit" asp-route-id="@Model.Id">Edit</a> |
