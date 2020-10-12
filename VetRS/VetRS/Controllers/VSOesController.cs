@@ -73,7 +73,7 @@ namespace VetRS.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PhoneNumber,Email,ImageLocation,VSOStreet,VSOCity,VSOState,VSOZipCode")] VSO vSO)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PhoneNumber,Email,VSOStreet,VSOCity,VSOState,VSOZipCode")] VSO vSO)
         {
             string url = $"https://maps.googleapis.com/maps/api/geocode/json?address={vSO.VSOStreet},+{vSO.VSOCity},+{vSO.VSOState}&key={APIKeys.GeocodeKey}";
             HttpClient client = new HttpClient();
@@ -89,6 +89,7 @@ namespace VetRS.Controllers
             {
                 var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
                 vSO.IdentityUserId = userId;
+                vSO.ImageLocation = null;
                 _context.Add(vSO);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

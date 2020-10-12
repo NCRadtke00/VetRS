@@ -69,7 +69,7 @@ namespace VetRS.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PhoneNumber,Email,ImageLocation,CompanyName,CompanyImageLocation,CompanyUrl,CompanyBio,CompanyStreet,CompanyCity,CompanyState,CompanyZipCode,Lat,Long,Rating,IdentityUserId")] Employer employer)
+        public async Task<IActionResult> Create([Bind("Id,FirstName,LastName,PhoneNumber,Email,CompanyName,CompanyUrl,CompanyBio,CompanyStreet,CompanyCity,CompanyState,CompanyZipCode,Rating")] Employer employer)
         {
             if (ModelState.IsValid)
             {
@@ -83,6 +83,10 @@ namespace VetRS.Controllers
                     employer.Lat = (double)geoCode["results"][0]["geometry"]["location"]["lat"];
                     employer.Long = (double)geoCode["results"][0]["geometry"]["location"]["lng"];
                 }
+                var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
+                employer.IdentityUserId = userId;
+                employer.ImageLocation = null;
+                employer.CompanyImageLocation = null;
                 _context.Add(employer);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));

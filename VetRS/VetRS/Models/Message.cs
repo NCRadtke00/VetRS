@@ -9,7 +9,7 @@ namespace VetRS.Models
     {
         public int ID { get; set; }
         public string SentBy { get; set; }
-        public string message { get; set; }
+        public string Messages { get; set; }
         public int GroupId { get; set; }
     }
 }
