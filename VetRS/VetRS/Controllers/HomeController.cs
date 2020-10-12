@@ -1,46 +1,31 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
+using System.ComponentModel.DataAnnotations;
+using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.SignalR;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Collections.Generic;
 using VetRS.Data;
+using Microsoft.AspNetCore.Authentication;
 using VetRS.Models;
+using System.Diagnostics;
+
 
 namespace VetRS.Controllers
 {
-
-   // [Authorize(Roles = "VSO")]
-   // [Authorize(Roles = "Veteran")]
-   // [Authorize(Roles = "Education Rep.")]
-
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ApplicationDbContext _context;
 
-        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
+        public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-            _context = context;
         }
         public IActionResult Index()
         {
-            EduVSOViewModel eduVSOViewModel = new EduVSOViewModel();
-            List<Education> edu = new List<Education>();
-            foreach (Education person in _context.Education)
-            {
-                edu.Add(person);
-            }
-            List<VSO> vso = new List<VSO>();
-            foreach (VSO person in _context.VSO)
-            {
-                vso.Add(person);
-            }
-            eduVSOViewModel.Educations = edu;
-            eduVSOViewModel.VSOs = vso;
             return View();
         }
 
