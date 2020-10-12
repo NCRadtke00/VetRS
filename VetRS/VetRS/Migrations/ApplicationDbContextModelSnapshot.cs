@@ -48,31 +48,31 @@ namespace VetRS.Migrations
                     b.HasData(
                         new
                         {
-                            Id = "bcb0eb48-050f-4c04-9a18-f7ad58efef54",
-                            ConcurrencyStamp = "3b50e696-5fda-47d3-a957-d5e2182a2d31",
+                            Id = "87001671-e8a0-414c-b1ae-48c03607a893",
+                            ConcurrencyStamp = "e578b99d-57e1-4f99-bea7-421b8f8c21f9",
                             Name = "Veteran",
                             NormalizedName = "VETERAN"
                         },
                         new
                         {
-                            Id = "705e1d9d-2bb3-435c-b049-79a0f70c183b",
-                            ConcurrencyStamp = "ad5e04fc-6280-421d-a177-3d5bc70223d4",
+                            Id = "71c46ce9-cffa-4c4c-a16e-36582e445b8e",
+                            ConcurrencyStamp = "e8c2a210-cfcb-4fe6-aec2-46de1c4d23b4",
                             Name = "VSO",
                             NormalizedName = "VSO"
                         },
                         new
                         {
-                            Id = "d9ca98fd-4fd0-493a-a42e-d1faf4826853",
-                            ConcurrencyStamp = "b7b26f41-7fd0-48a0-a220-2cd39afe6dd0",
+                            Id = "78d309cf-d4e1-48c0-8887-b5d236d5199b",
+                            ConcurrencyStamp = "0547d278-79e5-40d2-bc67-f140e46d681a",
                             Name = "Education Rep.",
                             NormalizedName = "EDUCATION REP"
                         },
                         new
                         {
-                            Id = "e364dc86-838d-4390-9411-dbdccaeb57b4",
-                            ConcurrencyStamp = "5f38865e-009e-4a9b-a307-bf8caf48a088",
+                            Id = "0bdbbcca-16de-4b40-bf7e-b6e0e1e0f46b",
+                            ConcurrencyStamp = "62d7c161-b75b-43fb-abc5-b897c4bb47ce",
                             Name = "Employer",
-                            NormalizedName = "Employer"
+                            NormalizedName = "EMPLOYER"
                         });
                 });
 
