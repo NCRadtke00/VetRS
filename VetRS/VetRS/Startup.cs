@@ -12,10 +12,6 @@ using VetRS.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using VetRS.Hubs;
-using System.Web.Routing;
-using Owin;
-using Microsoft.Owin;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
 using VetRS.ActionFilter;
@@ -48,8 +44,6 @@ s.GetService<IHttpContextAccessor>().HttpContext.User);
             });
             services.AddControllersWithViews();
             services.AddRazorPages();
-            services.AddSignalR();
-            services.AddMvc();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -76,7 +70,7 @@ s.GetService<IHttpContextAccessor>().HttpContext.User);
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
-                endpoints.MapHub<ChatHub>("/chathub");
+
             });
         }
     }

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
@@ -24,17 +24,18 @@ namespace VetRS.Controllers
         }
 
         // GET: Employers
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            //var cust = _context.Employer.Where(c => c.IdentityUserId == userId).FirstOrDefault();
-            //if (cust == null)
-            //{
-            //    return RedirectToAction("Create");
-            //}
 
-            var applicationDbContext = _context.Employer.Include(v => v.IdentityUser);
-            return View(await applicationDbContext.ToListAsync());
+            var employ = from j in _context.Employer
+                       select j;
+
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                employ = employ.Where(e => e.CompanyCity.Contains(searchString));
+
+            }
+            return View(employ);
         }
 
         // GET: Employers/Details/5
