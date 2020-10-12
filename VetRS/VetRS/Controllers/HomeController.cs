@@ -15,13 +15,16 @@ using System.Diagnostics;
 
 namespace VetRS.Controllers
 {
+
+
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+       
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext context)
         {
             _logger = logger;
+           
         }
         public IActionResult Index()
         {
