@@ -35,6 +35,11 @@ namespace VetRS.ActionFilter
                     context.Result = new RedirectToActionResult("Index",
                     "Educations", null);
                 }
+                else if (_claimsPrincipal.IsInRole("Employer"))
+                {
+                    context.Result = new RedirectToActionResult("Index",
+                    "Employers", null);
+                }
             }
         }
         public void OnActionExecuted(ActionExecutedContext context)

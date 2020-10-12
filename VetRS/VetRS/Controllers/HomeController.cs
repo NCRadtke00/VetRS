@@ -9,6 +9,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Collections.Generic;
 using VetRS.Hubs;
+using VetRS.Data;
 
 namespace VetRS.Controllers
 {

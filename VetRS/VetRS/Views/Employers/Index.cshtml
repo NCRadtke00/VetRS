@@ -1,0 +1,91 @@
+﻿@model IEnumerable<VetRS.Models.Employer>
+@section Styles {
+    <link rel="stylesheet" type="text/css" href="~/css/user.css" />
+}
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-2 leftlogodiv">
+        <figure class="imageDivLeft">
+            <img class="img-fluid leftlogo" src="/assets/vetrs.png" alt="Soldier on knees with big backpack and carrying rifle.">
+        </figure>
+    </div>
+    <div class="col-8">
+        <h1 class="text-center customFont">Veteran friendly Comapnys</h1>
+    </div>
+    <div class="col-2">
+        <figure class="imageDivRight">
+            <img class="img-fluid" src="/assets/SoldierSalutingFlag-300x175.jpg" alt="Soldier saluting flag with big flag background.">
+        </figure>
+    </div>
+</div>
+<br />
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <p1>Profile</p1>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyCity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CompanyState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Rating)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <form asp-controller="Employers" asp-action="Index">
+            <p>
+                Companyies: <input type="text" name="SearchString">
+                <input type="submit" value="Filter" />
+            </p>
+        </form>
+
+    </tbody>
+    <tbody>
+        @foreach (var item in Model)
+        {
+        <tr>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Profile</a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyCity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rating)
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>
