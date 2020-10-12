@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Text.RegularExpressions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 using VetRS.Models;
 
 namespace VetRS.Data
@@ -20,6 +22,9 @@ namespace VetRS.Data
         public DbSet<Veteran> Veteran { get; set; }
         public DbSet<MilitaryJobTranslator> MilitaryJobsTranslator { get; set; }
         public DbSet<Employer> Employer { get; set; }
+        public DbSet<Models.Group> Group { get; set; }
+        public DbSet<Models.Message> Message { get; set; }
+        public DbSet<UserGroup> UserGroup { get; set; }
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
