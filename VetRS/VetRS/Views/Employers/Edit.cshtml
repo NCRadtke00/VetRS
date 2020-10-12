@@ -1,17 +1,30 @@
-<<<<<<< HEAD
-﻿@model VetRS.Models.Employer
-=======
 @model VetRS.Models.Employer
->>>>>>> 7a96bf7d1b5e4ecbd6afd271d4cd4b353fd6f8b0
+@section Styles {
+    <link rel="stylesheet" href="~/css/user.css" />
+}
 
 @{
     ViewData["Title"] = "Edit";
 }
 
-<h1>Edit</h1>
-
-<h4>Employer</h4>
 <hr />
+<div class="row">
+    <div class="col-2 leftlogodiv">
+        <figure class="imageDivLeft">
+            <img class="img-fluid logo" src="/assets/vetrs.png" alt="Soldier on knees with big backpack and carrying rifle.">
+        </figure>
+    </div>
+    <div class="col-8">
+        <p class="text-center customFont">Employer</p>
+    </div>
+    <div class="col-2">
+        <figure class="imageDivRight">
+            <img class="img-fluid logo" src="/assets/SoldierSalutingFlag-300x175.jpg" alt="Soldier saluting flag with big flag background.">
+        </figure>
+    </div>
+</div>
+<br />
+<br />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
