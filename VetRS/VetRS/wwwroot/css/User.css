@@ -45,3 +45,6 @@ nav.custom-nav {
 .header-background {
     background-color: skyblue;
 }
+navbar-brand {
+    color: red;
+}
