@@ -1,11 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿var pusher = new Pusher('a8e8c58dc5d53b967a82', {
+    cluster: 'us3',
+    encrypted: true
+});
 
-namespace VetRS.wwwroot.js
-{
-    public class site
-    {
-    }
-}
+var channel = pusher.subscribe('my-channel');
+channel.bind('my-event', function (data) {
+    reloadGroup();
+});
