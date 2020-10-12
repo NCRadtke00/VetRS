@@ -47,7 +47,6 @@ s.GetService<IHttpContextAccessor>().HttpContext.User);
             });
             services.AddControllersWithViews();
             services.AddRazorPages();
-          
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -74,7 +73,7 @@ s.GetService<IHttpContextAccessor>().HttpContext.User);
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
-               
+
             });
         }
     }

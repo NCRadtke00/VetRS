@@ -27,12 +27,11 @@ namespace VetRS.Controllers
         public async Task<IActionResult> Index()
         {
             var userId = this.User.FindFirstValue(ClaimTypes.NameIdentifier);
-            var cust = _context.Employer.Where(c => c.IdentityUserId == userId).FirstOrDefault();
-            if (cust == null)
-            {
-                return RedirectToAction("Create");
-            }
-
+            //var cust = _context.Employer.Where(c => c.IdentityUserId == userId).FirstOrDefault();
+            //if (cust == null)
+            //{
+            //    return RedirectToAction("Create");
+            //}
             var applicationDbContext = _context.Employer.Include(v => v.IdentityUser);
             return View(await applicationDbContext.ToListAsync());
         }

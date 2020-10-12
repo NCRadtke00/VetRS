@@ -53,7 +53,7 @@ namespace VetRS.Data
             new IdentityRole
             {
                 Name = "Employer",
-                NormalizedName = "Employer"
+                NormalizedName = "EMPLOYER"
             }
             );
             {

@@ -2,14 +2,13 @@
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using System.Threading.Tasks;
-using Microsoft.AspNet.SignalR;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Collections.Generic;
 using VetRS.Data;
-using Microsoft.AspNetCore.Authentication;
 using VetRS.Models;
 using System.Diagnostics;
 
